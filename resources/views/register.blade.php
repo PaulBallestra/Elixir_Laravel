@@ -10,20 +10,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
 
         @livewireStyles
 
     </head>
     <body class="antialiased">
 
+        <!-- HEADER -->
         <livewire:header />
 
-        @livewireScripts
 
+
+
+
+        @livewireScripts
     </body>
 </html>
+
+
