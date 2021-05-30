@@ -9,6 +9,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//ACTUALITES
+Route::get('/actualites', function() {
+    return view('actualites');
+});
+
 //SERVICES
 Route::get('/services', function() {
     return view('services');
