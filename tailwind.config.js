@@ -6,7 +6,15 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+        fontFamily: {
+            'sans': ['Montserrat', 'system-ui'],
+            'serif': ['Montserrat', 'Georgia'],
+            'mono': ['ui-monospace', 'SFMono-Regular'],
+            'display': ['Oswald'],
+            'body': ['Open Sans'],
+        }
+    },
   },
   variants: {
     extend: {},
