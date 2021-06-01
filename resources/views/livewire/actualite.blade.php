@@ -13,8 +13,8 @@
             </p>
         </div>
 
-        <div class="flex flex-column">
-            <p style="align-items: flex-end" class="actualiteBtnSuite"> Lire la suite >> </p>
+        <div>
+            <p class="actualiteBtnSuite"> Lire la suite >> </p>
         </div>
     </div>
 </div>
