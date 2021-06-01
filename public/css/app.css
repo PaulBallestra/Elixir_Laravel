@@ -36,6 +36,46 @@ h1{
     font-family: 'Oswald';
 }
 
+/* Style ACTUALITES */
+.divActualite{
+    background-size: cover;
+}
+
+.divActualiteInfos{
+    background-color: black;
+    opacity: 0.85;
+    padding: 15px;
+}
+
+.actualiteDate{
+    font-family: 'Montserrat';
+    font-style: italic;
+    color: white;
+    font-size: 0.75em;
+}
+
+.actualiteTitle{
+    font-family: 'Montserrat';
+    font-weight: bold;
+    color: white;
+}
+
+.actualiteContent{
+    margin-top: 5px;
+    font-family: 'Montserrat';
+    color: white;
+    font-size: 0.85em;
+}
+
+.actualiteBtnSuite{
+    margin-top: 15px;
+    font-family: 'Montserrat';
+    font-style: italic;
+    color: white;
+    font-size: 0.75em;
+}
+
+
 *,
 ::before,
 ::after {
