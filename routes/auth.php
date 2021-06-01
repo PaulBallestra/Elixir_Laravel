@@ -11,7 +11,24 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 //HOME
-Route::get('/home', []);
+Route::get('/', [App\Http\Controllers\Controller::class, 'accueil']);
+
+//ACTUALITES
+Route::get('/actualites', []);
+
+//SERVICES
+Route::get('/service', [App\Http\Controllers\Controller::class, 'service']);
+
+//CONTACT
+Route::get('/contact', [App\Http\Controllers\Controller::class, 'contact']);
+
+//LOGIN
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+    ->middleware('guest')
+    ->name('login');
+
+Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+    ->middleware('guest');
 
 //REGISTER
 Route::get('/register', [RegisteredUserController::class, 'create'])
@@ -21,14 +38,7 @@ Route::get('/register', [RegisteredUserController::class, 'create'])
 Route::post('/register', [RegisteredUserController::class, 'store'])
                 ->middleware('guest');
 
-//LOGIN
-Route::get('/login', [AuthenticatedSessionController::class, 'create'])
-                ->middleware('guest')
-                ->name('login');
-
-Route::post('/login', [AuthenticatedSessionController::class, 'store'])
-                ->middleware('guest');
-
+//TOUT LE BORDEL DE BREEZE
 //FORGOT PASSWORD
 Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
                 ->middleware('guest')

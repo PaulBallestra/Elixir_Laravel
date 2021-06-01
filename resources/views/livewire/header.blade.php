@@ -42,7 +42,7 @@
                         <a href="/actualites" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-sans"
                            aria-current="page">ACTUALITÉS</a>
 
-                        <a href="/services"
+                        <a href="/service"
                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-sans">SERVICE</a>
 
                         <a href="/contact"
@@ -70,19 +70,19 @@
     <div class="sm:hidden" id="mobile-menu">
         <div class="px-2 pt-2 pb-3 space-y-1">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-sans"
+            <a href="/actualites" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-sans"
                aria-current="page">ACTUALITÉS</a>
 
-            <a href="#"
+            <a href="/service"
                class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-sans">SERVICE</a>
 
-            <a href="#"
+            <a href="/contact"
                class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-sans">CONTACT</a>
 
-            <a href="#"
+            <a href="/login"
                class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-sans">LOGIN</a>
 
-            <a href="#"
+            <a href="/register"
                class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-sans">REGISTER</a>
 
         </div>
