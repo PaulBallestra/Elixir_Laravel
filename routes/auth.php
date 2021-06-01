@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\Controller::class, 'accueil']);
 
 //ACTUALITES
-Route::get('/actualites', []);
+Route::get('/actualites', [App\Http\Controllers\Controller::class, 'actualites']);
 
 //SERVICES
 Route::get('/service', [App\Http\Controllers\Controller::class, 'service']);

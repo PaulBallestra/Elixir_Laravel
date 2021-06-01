@@ -11,6 +11,26 @@ Document
 Use a better box model (opinionated).
 */
 
+h1{
+    font-family: "Oswald";
+    color: black;
+
+}
+
+.titleHeaderClass{
+    font-family: 'Montserrat';
+}
+
+/* Styles des titres des pages */
+.titleCustomClass{
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.textCustomClass{
+    font-family: 'Oswald';
+}
+
 *,
 ::before,
 ::after {
