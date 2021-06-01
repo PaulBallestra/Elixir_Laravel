@@ -24,7 +24,12 @@ h1{
 /* Styles des titres des pages */
 .titleCustomClass{
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: 1.5em;
+}
+
+.sousTitleCustomClass{
+    font-family: 'Montserrat';
+    font-weight: 1em;
 }
 
 .textCustomClass{

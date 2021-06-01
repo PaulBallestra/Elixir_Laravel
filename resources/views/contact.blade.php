@@ -20,7 +20,10 @@
         <livewire:header />
 
 
-
+        <div class="">
+            <h1 class="titleCustomClass mt-4"> UNE QUESTION ? </h1>
+            <h3 class="sousTitleCustomClass"> Contactez-nous ! </h3>
+        </div>
 
 
         @livewireScripts
