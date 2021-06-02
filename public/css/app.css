@@ -22,8 +22,17 @@ h1{
 
 }
 
+/* HEADER */
+
 .titleHeaderClass{
     font-family: 'Montserrat';
+}
+
+/* FOOTER */
+footer{
+    font-family: 'Montserrat';
+    font-size: 0.75em;
+    background-color: black;
 }
 
 /* Styles des titres des pages */

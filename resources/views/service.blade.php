@@ -115,6 +115,9 @@
 </div>
 
 
+<livewire:footer />
+
+
 @livewireScripts
 </body>
 </html>
