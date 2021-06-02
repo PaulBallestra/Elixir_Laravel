@@ -11,16 +11,23 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 //HOME
-Route::get('/', [App\Http\Controllers\Controller::class, 'accueil']);
+Route::get('/', [App\Http\Controllers\Controller::class, 'accueil'])->name('accueil');
 
 //ACTUALITES
-Route::get('/actualites', [App\Http\Controllers\Controller::class, 'actualites']);
+Route::get('/actualites', [App\Http\Controllers\Controller::class, 'actualites'])->name('actualites');
 
 //SERVICES
-Route::get('/service', [App\Http\Controllers\Controller::class, 'service']);
+Route::get('/service', [App\Http\Controllers\Controller::class, 'service'])->name('service');
 
 //CONTACT
-Route::get('/contact', [App\Http\Controllers\Controller::class, 'contact']);
+Route::get('/contact', [App\Http\Controllers\Controller::class, 'contact'])->name('contact');
+
+//ABONNEMENT
+Route::get('/abonnement', [AuthenticatedSessionController::class, 'abonnement'])
+    ->middleware('auth')
+    ->name('abonnement');
+
+//PROFILE
 
 //LOGIN
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
