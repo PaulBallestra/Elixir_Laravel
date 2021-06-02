@@ -11,6 +11,11 @@ Document
 Use a better box model (opinionated).
 */
 
+.btnCustom {
+    font-family: "Montserrat";
+    color: white;
+}
+
 h1{
     font-family: "Oswald";
     color: black;
@@ -79,6 +84,12 @@ h1{
     font-size: 0.75em;
 }
 
+
+/* SERVICE PAGE */
+.serviceParagraphContent{
+    font-family: 'Montserrat';
+    font-size: 1em;
+}
 
 *,
 ::before,

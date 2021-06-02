@@ -12,6 +12,8 @@
                       Heroicon name: outline/menu
                       Menu open: "hidden", Menu closed: "block"
                     -->
+
+                    <!-- BURGER MENU -->
                     <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                          stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -29,13 +31,13 @@
                 </button>
             </div>
             <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <div class="flex-shrink-0 flex items-center">
+                <a href="/"><div class="flex-shrink-0 flex items-center">
                     <img class="block lg:hidden h-8 w-auto"
                          src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
                     <img class="hidden lg:block h-8 w-auto"
                          src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
                          alt="Workflow">
-                </div>
+                </div></a>
                 <div class="hidden sm:block sm:ml-6">
                     <div class="flex space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
