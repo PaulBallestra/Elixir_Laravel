@@ -22,7 +22,7 @@
 <!-- TITLE DE LA PAGE -->
 <div class="grid grid-cols-6 gap-4 mb-4">
     <div class="col-start-2 col-span-4">
-        <h1 class="titleCustomClass mt-4 text-center"> ABONNEMENT </h1>
+        <h1 class="titleCustomClass mt-4 text-center"> PROFIL </h1>
     </div>
 </div>
 

@@ -25,6 +25,11 @@ class AuthenticatedSessionController extends Controller
         return view('auth.abonnements');
     }
 
+    public function profile()
+    {
+        return view('auth.profile');
+    }
+
     /**
      * Handle an incoming authentication request.
      *
@@ -37,7 +42,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect('/'); //->intended(RouteServiceProvider::HOME);
     }
 
     /**

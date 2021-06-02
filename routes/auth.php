@@ -28,6 +28,9 @@ Route::get('/abonnement', [AuthenticatedSessionController::class, 'abonnement'])
     ->name('abonnement');
 
 //PROFILE
+Route::get('/profile', [AuthenticatedSessionController::class, 'profile'])
+    ->middleware('auth')
+    ->name('profile');
 
 //LOGIN
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
@@ -82,6 +85,7 @@ Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
 Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
                 ->middleware('auth');
 
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+//LOGOUT
+Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->middleware('auth')
                 ->name('logout');
