@@ -1,4 +1,4 @@
-<footer class="py-6">
+<footer class="py-6" style="opacity: 0.85;">
 
     <!-- RESEAUX SOCIAUX -->
     <div class="grid grid-cols-6 gap-4">
