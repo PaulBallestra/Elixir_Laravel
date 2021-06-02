@@ -19,7 +19,7 @@
 
         <a href="/" class="col-start-2 mx-auto text-white px-3 py-2 text-sm font-sans"
            aria-current="page">CONDITIONS GÉNÉRALES</a>
-        <a href="/" class="col-start-3 mx-auto text-white px-3 py-2 text-sm font-sans"
+        <a href="/contact" class="col-start-3 mx-auto text-white px-3 py-2 text-sm font-sans"
            aria-current="page">CONTACT</a>
         <a href="/" class="col-start-4 mx-auto text-white px-3 py-2 text-sm font-sans"
            aria-current="page">FAQ</a>
