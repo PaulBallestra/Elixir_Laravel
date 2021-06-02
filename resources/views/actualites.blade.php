@@ -28,7 +28,7 @@
             </div>
 
             <!-- GRID DES ACTUALITÉS -->
-            <div class="grid sm:grid-cols-3 sm:grid-cols-4 sm:gap-4">
+            <div class="grid mb-10 sm:grid-cols-3 sm:grid-cols-4 sm:gap-4">
 
                 <!-- ACTU GAUCHE -->
                 <div class="col-start-1 sm:col-start-1 col-end-3">
@@ -44,6 +44,8 @@
                 </div>
 
             </div>
+
+            <livewire:footer />
 
             @livewireScripts
         </body>

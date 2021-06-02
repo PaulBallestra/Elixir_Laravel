@@ -28,7 +28,6 @@
 
 <!-- ABONNEMENT CONTENT -->
 
-
 <!-- Si aucun abonnement -->
 <h3 class="sousTitleCustomClass text-center mx-auto"> Vous n'avez aucun abonnement pour le moment. </h3>
 <h3 class="sousTitleCustomClass text-center mx-auto">    Choisissez en un ci-dessous. </h3>
@@ -91,7 +90,6 @@
 </div>
 
 <livewire:footer />
-
 
 @livewireScripts
 </body>
