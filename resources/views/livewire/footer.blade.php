@@ -15,7 +15,7 @@
     </div>
 
     <!-- CONDITIONS / CONTACT / FAQ ... -->
-    <div class="grid grid-cols-6 gap-4 mt-2">
+    <div class="grid grid-cols-6 gap-4">
 
         <a href="/" class="col-start-2 mx-auto text-white px-3 py-2 text-sm font-sans"
            aria-current="page">CONDITIONS GÉNÉRALES</a>

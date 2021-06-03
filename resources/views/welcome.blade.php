@@ -57,6 +57,50 @@
         </div>
 
 
+        <!-- INFOS -->
+        <div class="grid sm:grid-flow-col md:grid-cols-3 gap-4">
+
+            <div class="text-center mb-4">
+
+                <h3 class="h3WelcomePage"> UN SON INCROYABLE QUI DURE </h3>
+                <p class="pWelcomePage px-6 py-3"> Les cordes Elixir ont une longévité
+                    sonore toujours inégalée par rapport
+                    a n'importe quelle autre corde du marché.
+                    Le son reste pur, concert après concert,
+                    record après record. </p>
+
+            </div>
+
+            <div class="text-center mb-4">
+
+                <h3 class="h3WelcomePage"> UNE PERFORMANCE FIABLE </h3>
+                <p class="pWelcomePage px-6 py-3"> Les cordes Elixir peuvent resister à
+                    d'énormes écarts de température,
+                    voire aux pires conditions d'humidité.
+                    Nos cordes offrent une performance constante
+                    quel que soit l'environnement. </p>
+
+            </div>
+
+            <div class="text-center mb-4">
+
+                <h3 class="h3WelcomePage"> UNE PLUS GRANDE STABILITÉ D'ACCORDAGE </h3>
+                <p class="pWelcomePage px-6 py-3"> Les musiciens affirment que les cordes
+                    Elixir restent accordées plus longtemps,
+                    évitant ainsi de devoir vous réaccorder sans arrêt. </p>
+
+            </div>
+
+        </div>
+
+        <!-- ABONNEZ-VOUS -->
+        <div>
+
+            <img style="width: 100vw;" src="images/guitarlotof.jpg">
+
+        </div>
+
+
         <livewire:footer />
 
         @livewireScripts
