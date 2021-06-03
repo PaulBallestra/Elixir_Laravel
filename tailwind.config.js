@@ -12,6 +12,15 @@ module.exports = {
             fontFamily: {
                 sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
             },
+            carouselImages: {
+                1: "url('images/type_elixir.png')",
+                2: "url('images/string_elixir.png')",
+                3: "url('images/guitarlogof.jpg')",
+                4: "url('images/basslotof.jpg')",
+            },
+            flex: {
+                4: 4
+            }
         },
     },
 
