@@ -43,6 +43,45 @@
                     <livewire:actualite />
                 </div>
 
+                <!-- ACTU GAUCHE -->
+                <div class="col-start-1 sm:col-start-1 col-end-3">
+
+                    <!-- SQUELETTE ACTUALITE -->
+                    <livewire:actualite />
+
+                </div>
+
+                <!-- ACTU DROITE -->
+                <div class="col-start-1 sm:col-start-3 col-end-5">
+                    <livewire:actualite />
+                </div>
+
+                <!-- ACTU GAUCHE -->
+                <div class="col-start-1 sm:col-start-1 col-end-3">
+
+                    <!-- SQUELETTE ACTUALITE -->
+                    <livewire:actualite />
+
+                </div>
+
+                <!-- ACTU DROITE -->
+                <div class="col-start-1 sm:col-start-3 col-end-5">
+                    <livewire:actualite />
+                </div>
+
+                <!-- ACTU GAUCHE -->
+                <div class="col-start-1 sm:col-start-1 col-end-3">
+
+                    <!-- SQUELETTE ACTUALITE -->
+                    <livewire:actualite />
+
+                </div>
+
+                <!-- ACTU DROITE -->
+                <div class="col-start-1 sm:col-start-3 col-end-5">
+                    <livewire:actualite />
+                </div>
+
             </div>
 
             <livewire:footer />
