@@ -6,7 +6,11 @@
 h1{
     font-family: "Oswald";
     color: black;
+}
 
+/* Style du background content */
+.backgroundContent{
+    background-color: rgba(255, 255, 255, 0.85);
 }
 
 /* HEADER */
@@ -256,23 +260,20 @@ Remove the margin in all browsers.
 body {
     padding: 0;
     margin: 0;
-}
-
-/**
-Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
-*/
-
-body {
-  font-family:
-		system-ui,
-		-apple-system, /* Firefox supports this but not yet `system-ui` */
-		'Segoe UI',
-		Roboto,
-		Helvetica,
-		Arial,
-		sans-serif,
-		'Apple Color Emoji',
-		'Segoe UI Emoji';
+    background-image: url("../images/guitarlotof.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family:
+            system-ui,
+            -apple-system, /* Firefox supports this but not yet `system-ui` */
+            'Segoe UI',
+            'Montserrat',
+            Roboto,
+            Helvetica,
+            Arial,
+            sans-serif,
+            'Apple Color Emoji',
+            'Segoe UI Emoji';
 }
 
 /*
@@ -286,8 +287,8 @@ Grouping content
 */
 
 hr {
-  height: 0; /* 1 */
-  color: inherit; /* 2 */
+  height: 1; /* 1 */
+  color: black; /* 2 */
 }
 
 /*

@@ -39,6 +39,8 @@
             </main>
         </div>
 
-    @livewireScripts
+        <livewire:footer />
+
+        @livewireScripts
     </body>
 </html>
