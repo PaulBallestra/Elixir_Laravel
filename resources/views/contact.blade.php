@@ -73,6 +73,63 @@
         </div>
 
 
+        <hr class="mt-6 mb-3">
+
+        <!-- FORMULAIRE DE CONTACT -->
+
+        <div class="grid grid-cols-6 gap-4 mb-4">
+            <div class="col-start-2 col-span-4">
+                <h1 class="titleCustomClass mt-4 text-center"> OU POSEZ LA DIRECTEMENT ! </h1>
+            </div>
+        </div>
+
+
+        <div class="mt-10 sm:mt-0">
+            <div class="md:grid md:grid-cols-4 md:gap-6">
+                <div class="mt-5 md:mt-0 md:col-start-2 md:col-end-4">
+                    <form action="#" method="POST">
+                        <div class="shadow overflow-hidden sm:rounded-md">
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <div class="grid grid-cols-6 gap-6">
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label for="family-name" class="block text-sm font-medium text-gray-700">Nom</label>
+                                        <input type="text" name="family-name" id="family-name" autocomplete="family-name" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label for="given-name" class="block text-sm font-medium text-gray-700">Prénom</label>
+                                        <input type="text" name="given-name" id="given-name" autocomplete="given-name" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+
+                                    <div class="col-span-6 sm:col-span-4">
+                                        <label for="email_address" class="block text-sm font-medium text-gray-700">Email</label>
+                                        <input type="text" name="email_address" id="email_address" autocomplete="email" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+
+                                    <div class="col-span-6">
+                                        <label for="objet" class="block text-sm font-medium text-gray-700">Objet</label>
+                                        <input type="text" name="objet" id="objet" autocomplete="street-address" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+
+                                    <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                                        <label for="city" class="block text-sm font-medium text-gray-700">Contenu</label>
+                                        <input type="text" name="city" id="city" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    Envoyer
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
         <livewire:footer />
 
 

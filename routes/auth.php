@@ -32,6 +32,11 @@ Route::get('/profile', [AuthenticatedSessionController::class, 'profile'])
     ->middleware('auth')
     ->name('profile');
 
+//ADMIN
+Route::get('/admin', [AuthenticatedSessionController::class, 'admin'])
+    ->middleware('auth')
+    ->name('admin');
+
 //LOGIN
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
     ->middleware('guest')
