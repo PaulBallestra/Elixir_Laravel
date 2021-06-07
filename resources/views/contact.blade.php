@@ -84,7 +84,7 @@
         </div>
 
 
-        <div class="mt-10 sm:mt-0">
+        <div class="mb-5 sm:mt-0">
             <div class="md:grid md:grid-cols-4 md:gap-6">
                 <div class="mt-5 md:mt-0 md:col-start-2 md:col-end-4">
                     <form action="#" method="POST">
@@ -111,9 +111,13 @@
                                         <input type="text" name="objet" id="objet" autocomplete="street-address" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                     </div>
 
-                                    <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                                        <label for="city" class="block text-sm font-medium text-gray-700">Contenu</label>
-                                        <input type="text" name="city" id="city" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    <div class="col-span-6">
+                                        <label for="content" class="block text-sm font-medium text-gray-700">
+                                            Contenu
+                                        </label>
+                                        <div class="mt-1">
+                                            <textarea id="content" name="content" rows="6" class="shadow-sm border-blue-300 focus:border-blue-700 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="Ce pourquoi vous nous contactez..."></textarea>
+                                        </div>
                                     </div>
 
                                 </div>
