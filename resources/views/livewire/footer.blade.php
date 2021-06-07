@@ -15,15 +15,15 @@
     </div>
 
     <!-- CONDITIONS / CONTACT / FAQ ... -->
-    <div class="grid grid-cols-6 gap-4">
+    <div class="grid md:gap-4 md:grid-cols-6">
 
-        <a href="/" class="col-start-2 mx-auto text-white px-3 py-2 text-sm font-sans"
+        <a href="/" class="md:col-start-2 mx-auto text-white px-3 py-2 text-sm font-sans"
            aria-current="page">CONDITIONS GÉNÉRALES</a>
-        <a href="/contact" class="col-start-3 mx-auto text-white px-3 py-2 text-sm font-sans"
+        <a href="/contact" class="md:col-start-3 mx-auto text-white px-3 py-2 text-sm font-sans"
            aria-current="page">CONTACT</a>
-        <a href="/" class="col-start-4 mx-auto text-white px-3 py-2 text-sm font-sans"
+        <a href="/" class="md:col-start-4 mx-auto text-white px-3 py-2 text-sm font-sans"
            aria-current="page">FAQ</a>
-        <a href="/" class="col-start-5 mx-auto text-white px-3 py-2 text-sm font-sans"
+        <a href="/" class="md:col-start-5 mx-auto text-white px-3 py-2 text-sm font-sans"
            aria-current="page">LIVRAISON</a>
 
     </div>
@@ -31,8 +31,8 @@
     <!-- ELIXIR IS BASED -->
     <div class="grid grid-cols-6 mt-2">
 
-        <p class="col-start-3 col-end-5 mx-auto text-white"> Elixir is based in France. </p>
-        <p class="col-start-3 col-end-5 mx-auto text-white"> 19 Rue Yves Toudic, 75010, Paris. </p>
+        <p class="col-start-2 col-end-6 mx-auto text-white md:col-start-3 md:col-end-5"> Elixir is based in France. </p>
+        <p class="col-start-2 col-end-6 mx-auto text-white md:col-start-3 md:col-end-5"> 19 Rue Yves Toudic, 75010, Paris. </p>
 
     </div>
 
