@@ -22,8 +22,8 @@
 
 
     <!-- TITLE DE LA PAGE -->
-    <div class="grid grid-cols-6 gap-4 mb-4">
-        <div class="col-start-2 col-span-4">
+    <div class="grid md:grid-cols-6 md:gap-4 mb-4">
+        <div class="md:col-start-2 md:col-span-4">
             <h1 class="titleCustomClass mt-4 text-center"> NOTRE SERVICE </h1>
             <h3 class="sousTitleCustomClass text-center"> Notre service vous permet de précommander des cordes Elixir, selon
                 vos besoins (mois ou année). </h3>
@@ -31,16 +31,16 @@
     </div>
 
     <!-- SERVICE CONTENT -->
-    <div class="grid grid-cols-5 gap-4 mx-4 mt-8">
+    <div class="grid md:grid-cols-5 md:gap-4 mx-4 mt-8">
 
-        <div class="col-start-1 col-end-3">
+        <div class="md:col-start-1 md:col-end-3">
 
-            <img src="images/blue_elixir.png"/>
+            <img class="" src="images/blue_elixir.png"/>
 
         </div>
 
-        <div class="col-start-3 col-end-6 m-auto">
-            <p class="serviceParagraphContent" style="text-align: center; margin: 20% 0;"> Choisissez votre tirant en
+        <div class="md:col-start-3 md:col-end-6 m-auto">
+            <p class="serviceParagraphContent my-5 pb-5"> Choisissez votre tirant en
                 fonction de vos habitudes.
                 Plusieurs tirants sont disponibles que ce soit sur guitare électrique,
                 basse électrique, banjo ou mandolin. </p>
@@ -48,23 +48,25 @@
 
     </div>
 
+    <hr>
+
     <!-- ABONNEMENTS SECTION -->
-    <div class="grid grid-cols-5 gap-4 mt-0 mb-8 mx-4">
+    <div class="grid md:grid-cols-5 md:gap-4 mt-0 mb-8 mx-4 mt-4">
 
-        <div class="col-start-1 col-end-3 m-auto">
+        <div class="md:col-start-1 md:col-end-3 m-auto">
 
-                <p class="serviceParagraphContent" style="text-align: center; margin: 20% 0;"> Selon vos besoin, deux abonnements sont disponibles.
+                <p class="serviceParagraphContent my-5 pb-5"> Selon vos besoin, deux abonnements sont disponibles.
                     Tous les mois ou tous les ans.
                     Chaque abonnement à ses spécificités.
                 </p>
 
         </div>
 
-        <div class="col-start-3 col-end-6">
+        <div class="md:col-start-3 md:col-end-6">
             <div class="w-full bg-blue pt-8">
                 <div class="flex flex-col sm:flex-row justify-center mb-6 sm:mb-0">
                     <!-- MOIS -->
-                    <div class="sm:flex-1 lg:flex-initial lg:w-1/4 rounded-t-lg rounded-tr-none bg-gray-100 mt-4 flex flex-col">
+                    <div class="shadow-lg sm:flex-1 lg:flex-initial lg:w-1/3 rounded-t-lg rounded-tr-none bg-gray-100 mt-4 flex flex-col">
                         <div class="p-8 text-3xl font-bold text-center">Mois</div>
                         <div class="border-0 border-black border-t border-solid text-sm">
                             <div class="text-center border-0 border-black border-b border-solid py-4">
@@ -85,7 +87,7 @@
 
                     <!-- ANS -->
                     <div
-                        class="flex-1 lg:flex-initial lg:w-1/4 rounded-t-lg bg-gray-200 mt-4 sm:-mt-4 shadow-lg z-30 flex flex-col">
+                        class="flex-1 lg:flex-initial lg:w-1/3 rounded-t-lg bg-gray-200 mt-4 sm:-mt-4 shadow-lg z-30 flex flex-col">
                         <div class="w-full p-8 text-3xl font-bold text-center">An</div>
                         <div class="w-full border-0 border-black border-t border-solid text-sm">
                             <div class="text-center border-0 border-black border-b border-solid py-4">
