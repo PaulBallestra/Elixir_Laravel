@@ -13,8 +13,9 @@
             </p>
         </div>
 
-        <div>
-            <p class="actualiteBtnSuite"> Lire la suite >> </p>
+        <div class="flex justify-end">
+            <p class="actualiteBtnSuite justify-content-end"> Lire la suite >> </p>
         </div>
+
     </div>
 </div>
