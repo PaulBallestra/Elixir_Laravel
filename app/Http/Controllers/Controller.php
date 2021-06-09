@@ -16,9 +16,16 @@ class Controller extends BaseController
         return view('welcome');
     }
 
+    //Toutes les actualites
     public function actualites()
     {
         return view('actualites');
+    }
+
+    //Une seule actualite
+    public function actualite()
+    {
+        return view('actualite');
     }
 
     public function service()

@@ -14,7 +14,7 @@
         </div>
 
         <div class="flex justify-end">
-            <p class="actualiteBtnSuite justify-content-end"> Lire la suite >> </p>
+            <a href="actualites/1"><p class="actualiteBtnSuite justify-content-end"> Lire la suite >> </p></a>
         </div>
 
     </div>

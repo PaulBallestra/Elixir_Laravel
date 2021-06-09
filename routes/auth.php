@@ -16,6 +16,9 @@ Route::get('/', [App\Http\Controllers\Controller::class, 'accueil'])->name('accu
 //ACTUALITES
 Route::get('/actualites', [App\Http\Controllers\Controller::class, 'actualites'])->name('actualites');
 
+//CURRENT ACTUALITE
+Route::get('/actualites/1', [App\Http\Controllers\Controller::class, 'actualite']);
+
 //SERVICES
 Route::get('/service', [App\Http\Controllers\Controller::class, 'service'])->name('service');
 
