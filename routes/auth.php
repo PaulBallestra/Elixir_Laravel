@@ -30,6 +30,16 @@ Route::get('/abonnement', [AuthenticatedSessionController::class, 'abonnement'])
     ->middleware('auth')
     ->name('abonnement');
 
+//PAIEMENT MONTHLY ABONNEMENT
+Route::get('/abonnement/monthly', [AuthenticatedSessionController::class, 'monthlyAbonnement'])
+    ->middleware('auth')
+    ->name('monthlyAbonnement');
+
+//PAIEMENT YEARLY ABONNEMENT
+Route::get('/abonnement/yearly', [AuthenticatedSessionController::class, 'yearlyAbonnement'])
+    ->middleware('auth')
+    ->name('yearlyAbonnement');
+
 //PROFILE
 Route::get('/profile', [AuthenticatedSessionController::class, 'profile'])
     ->middleware('auth')

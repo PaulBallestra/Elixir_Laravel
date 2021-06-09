@@ -34,9 +34,9 @@
             <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <a href="/">
                     <div class="flex-shrink-0 flex items-center">
-                        <img class="block lg:hidden h-16 w-auto" src="images/elixir_logo_white.png" alt="ElixirLogo" >
+                        <img class="block lg:hidden h-16 w-auto" src="../images/elixir_logo_white.png" alt="ElixirLogo" >
 
-                        <img class="hidden lg:block h-16 w-auto" src="images/elixir_logo_white.png" alt="ElixirLogo" >
+                        <img class="hidden lg:block h-16 w-auto" src="../images/elixir_logo_white.png" alt="ElixirLogo" >
                     </div>
                 </a>
                 <div class="hidden my-auto sm:block sm:ml-6">

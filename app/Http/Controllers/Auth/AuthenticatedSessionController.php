@@ -25,6 +25,16 @@ class AuthenticatedSessionController extends Controller
         return view('auth.abonnements');
     }
 
+    public function monthlyAbonnement()
+    {
+        return view('auth.monthly-abonnement');
+    }
+
+    public function yearlyAbonnement()
+    {
+        return view('auth.yearly-abonnement');
+    }
+
     public function profile()
     {
         return view('auth.profile');
