@@ -41,7 +41,7 @@
 
             </div>
 
-            <div class="py-4 bg-white">
+            <div class="py-4">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                     <!-- GOOGLE MAP -->
@@ -95,22 +95,22 @@
                                     <div class="grid grid-cols-6 gap-6">
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="family-name" class="block text-sm font-medium text-gray-700">Nom</label>
-                                            <input type="text" name="family-name" id="family-name" autocomplete="family-name" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                            <input type="text" name="family-name" id="family-name" placeholder="Kramer" autocomplete="family-name" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                         </div>
 
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="given-name" class="block text-sm font-medium text-gray-700">Prénom</label>
-                                            <input type="text" name="given-name" id="given-name" autocomplete="given-name" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                            <input type="text" name="given-name" id="given-name" placeholder="John" autocomplete="given-name" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                         </div>
 
-                                        <div class="col-span-6 sm:col-span-4">
+                                        <div class="col-span-6 sm:col-span-6">
                                             <label for="email_address" class="block text-sm font-medium text-gray-700">Email</label>
-                                            <input type="text" name="email_address" id="email_address" autocomplete="email" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                            <input type="text" name="email_address" id="email_address" placeholder="john.kramer@gmail.com" autocomplete="email" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                         </div>
 
                                         <div class="col-span-6">
                                             <label for="objet" class="block text-sm font-medium text-gray-700">Objet</label>
-                                            <input type="text" name="objet" id="objet" autocomplete="street-address" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                            <input type="text" name="objet" id="objet" autocomplete="street-address" placeholder="Objet" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                         </div>
 
                                         <div class="col-span-6">
