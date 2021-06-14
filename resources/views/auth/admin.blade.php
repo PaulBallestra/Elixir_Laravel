@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    <!-- ADMIN CONTENT -->
+    <!-- ADMIN CONTENT (Ca fait une triforce en computer screen size mais bon)-->
     <div class="grid grid-cols-1 py-5 md:grid-cols-3">
 
         <!-- USERS -->
