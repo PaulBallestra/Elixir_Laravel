@@ -18,52 +18,65 @@
 <!-- HEADER -->
 <livewire:header/>
 
-
-<!-- TITLE DE LA PAGE -->
-<div class="grid grid-cols-6 gap-4 mb-4">
-    <div class="col-start-2 col-span-4">
-        <h1 class="titleCustomClass mt-4 text-center"> ADMIN </h1>
-        <h3 class="sousTitleCustomClass text-center"> Gérez vos utilisateurs, actualités et abonnements </h3>
-    </div>
-</div>
-
-<!-- ADMIN CONTENT -->
+<div class="backgroundContent pb-3">
 
 
-<div class="grid grid-cols-6 gap-4">
-
-    <!-- USERS -->
-    <a href=""><div class="col-start-1 col-end-3 py-4 px-8 bg-white shadow-lg rounded-lg my-20">
-        <div>
-            <h2 class="text-gray-800 text-3xl font-semibold">12 Users</h2>
-            <p class="mt-2 text-gray-600">Gérez vos utilisateurs, leurs emails, mot de passe, administrateurs ...</p>
-        </div>
-        <div class="flex justify-end mt-4">
-            <a href="#" class="text-xl font-medium text-indigo-500">Gérer</a>
+    <!-- TITLE DE LA PAGE -->
+    <div class="grid grid-cols-6 gap-4 mb-4">
+        <div class="col-start-2 col-span-4">
+            <h1 class="titleCustomClass mt-4 text-center"> ADMIN </h1>
+            <h3 class="sousTitleCustomClass text-center"> Gérez vos utilisateurs, actualités et abonnements </h3>
         </div>
     </div>
-    </a>
 
-    <!-- ABONNEMENTS -->
-    <a href=""><div class="col-start-3 col-end-4 py-4 px-8 bg-white shadow-lg rounded-lg my-20">
-            <div>
-                <h2 class="text-gray-800 text-3xl font-semibold">2 Abonnements</h2>
-                <p class="mt-2 text-gray-600">Gérez les abonnements de vos utilisateurs</p>
+    <!-- ADMIN CONTENT -->
+    <div class="grid grid-cols-1 py-5 md:grid-cols-3">
+
+        <!-- USERS -->
+        <a href="admin/users">
+            <div class="py-4 px-8 bg-white shadow-lg rounded-lg my-3">
+                <div>
+                    <h2 class="text-gray-800 text-3xl font-semibold">12 Users</h2>
+                    <p class="mt-2 text-gray-600">Gérez vos utilisateurs, leurs emails, mot de passe, administrateurs
+                        ...</p>
+                </div>
+                <div class="flex justify-end mt-4">
+                    <a href="admin/users" class="text-xl font-medium text-indigo-500">Gérer</a>
+                </div>
             </div>
-            <div class="flex justify-end mt-4">
-                <a href="#" class="text-xl font-medium text-indigo-500">Gérer</a>
+        </a>
+
+        <!-- ABONNEMENTS -->
+        <a href="admin/abonnements">
+            <div class="py-4 px-8 bg-white shadow-lg rounded-lg my-3">
+                <div>
+                    <h2 class="text-gray-800 text-3xl font-semibold">2 Abonnements</h2>
+                    <p class="mt-2 text-gray-600">Gérez les abonnements de vos utilisateurs</p>
+                </div>
+                <div class="flex justify-end mt-4">
+                    <a href="admin/abonnements" class="text-xl font-medium text-indigo-500">Gérer</a>
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
+
+        <!-- ACTUALITÉS -->
+        <a href="admin/actualites">
+            <div class="py-4 px-8 bg-white shadow-lg rounded-lg my-3">
+                <div>
+                    <h2 class="text-gray-800 text-3xl font-semibold">5 Actualités</h2>
+                    <p class="mt-2 text-gray-600">Créez, modifiez ou supprimez vos actualités</p>
+                </div>
+                <div class="flex justify-end mt-4">
+                    <a href="admin/actualites" class="text-xl font-medium text-indigo-500">Gérer</a>
+                </div>
+            </div>
+        </a>
+    </div>
 
 </div>
 
-<!-- USERS -->
-<!-- ACTUALITES -->
-<!-- ABONNEMENTS -->
 
-
-<livewire:footer />
+<livewire:footer/>
 
 
 @livewireScripts
