@@ -25,9 +25,9 @@
 
             <!-- PRENOM -->
             <div class="mt-4">
-                <x-label for="prenom" :value="__('Prenom')"/>
+                <x-label for="firstname" :value="__('Prenom')"/>
 
-                <x-input id="prenom" class="block mt-1 w-full" type="text" name="prenom" :value="old('prenom')" required autofocus/>
+                <x-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" :value="old('Prenom')" required autofocus/>
             </div>
 
             <!-- Email Address -->

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Elixir - Abonnement</title>
+    <title>Elixir - Profil</title>
 
     <!-- INTEGRATION TAILWIND -->
     <meta charset="UTF-8"/>
@@ -41,7 +41,7 @@
                                     <label for="family-name"
                                            class="block text-sm font-medium text-gray-700">Nom</label>
                                     <input type="text" name="family-name" id="family-name" placeholder="Kramer"
-                                           autocomplete="family-name"
+                                           autocomplete="{{ $user->name }}"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
@@ -49,7 +49,7 @@
                                     <label for="given-name"
                                            class="block text-sm font-medium text-gray-700">Prénom</label>
                                     <input type="text" name="given-name" id="given-name" placeholder="John"
-                                           autocomplete="given-name"
+                                           autocomplete="{{ $user->name }}"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
