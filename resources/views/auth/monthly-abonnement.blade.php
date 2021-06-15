@@ -83,20 +83,14 @@
 
                     <p class="text-center"> 2 - Entrez vos coordonnées bancaire </p>
 
+                    <!-- STRIPE -->
+
                 </div>
 
 
             </div>
 
         </div>
-
-
-    </div>
-
-    <div class="">
-
-
-
 
 
     </div>

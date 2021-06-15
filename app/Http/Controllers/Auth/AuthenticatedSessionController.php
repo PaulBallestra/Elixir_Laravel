@@ -27,6 +27,9 @@ class AuthenticatedSessionController extends Controller
 
     public function monthlyAbonnement()
     {
+        /*return view('update-payment-method', [
+            'intent' => $user->createSetupIntent()
+        ]); */
         return view('auth.monthly-abonnement');
     }
 
