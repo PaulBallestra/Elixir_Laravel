@@ -46,6 +46,10 @@ class UserController extends Controller
             $update += ['password' => Hash::make($request->password)];
         }
 
+        // Modif du updated_at qui n'etait pas automatique
+        $updatedDate = date('Y-m-d H:i:s');
+        $update += ['updated_at' => $updatedDate];
+
         //Récupération de l'user
         $user = User::findOrFail(Auth::user()->id);
 
