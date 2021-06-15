@@ -15,12 +15,13 @@ class UserController extends Controller
     /* PROFILE */
     public function profile()
     {
-        return view('auth.profile', ['user' => Auth::user()]);
+        return view('auth.profile', ['user' => Auth::user(), 'updated' => false]);
     }
 
     public function saveProfile(ProfileFormRequest $request)
     {
 
+        //Variable pour preparer la requete
         $update = [];
 
         //VERIFIEZ QU'IL NE REMPLI PAS QU'UN SEUL CHAMPS DE L'ADDRESSE
@@ -58,11 +59,10 @@ class UserController extends Controller
             ->where(['id' => $user->id])
             ->update($update);
 
-
-
+        //On rechope les valeurs de l'user modifié
         $valuesChangedUser = DB::table('users')->where(['id' => $user->id])->first();
 
-
-        return view('auth.profile', ['user' => $valuesChangedUser]);
+        //On réaffiche la page avec les infos modifiées et un message
+        return view('auth.profile', ['user' => $valuesChangedUser, 'updated' => true]);
     }
 }

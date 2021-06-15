@@ -39,6 +39,15 @@
         </div>
     @endif
 
+    <!-- VALIDATIONS -->
+    @if ($updated)
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mx-5 mb-3" role="alert">
+            <ul>
+                <li> Votre profil a été mis à jour ! </li>
+            </ul>
+        </div>
+    @endif
+
     <!-- INFOS PERSONNELLES -->
     <!-- INFOS EMAIL PASSWORD -->
     <div class="mb-5 sm:mt-0">
