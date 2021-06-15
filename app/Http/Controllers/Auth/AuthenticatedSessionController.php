@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
+use App\Http\Requests\ProfileFormRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,6 +41,12 @@ class AuthenticatedSessionController extends Controller
 
     public function profile()
     {
+        return view('auth.profile', ['user' => Auth::user()]);
+    }
+
+    public function saveProfile(ProfileFormRequest $request)
+    {
+        dd($request->all());
         return view('auth.profile', ['user' => Auth::user()]);
     }
 

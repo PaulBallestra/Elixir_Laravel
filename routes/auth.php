@@ -45,6 +45,10 @@ Route::get('/profile', [AuthenticatedSessionController::class, 'profile'])
     ->middleware('auth')
     ->name('profile');
 
+Route::post('/profile', [AuthenticatedSessionController::class, 'saveProfile'])
+    ->middleware('auth')
+    ->name('profile.save');
+
 //ADMIN
 Route::get('/admin', [AuthenticatedSessionController::class, 'admin'])
     ->middleware('auth')

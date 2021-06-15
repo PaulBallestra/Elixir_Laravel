@@ -33,7 +33,7 @@
     <div class="mb-5 sm:mt-0">
         <div class="md:grid md:grid-cols-4 md:gap-6">
             <div class="mt-5 md:mt-0 md:col-start-2 md:col-end-4">
-                <form action="#" method="POST">
+                <form action="/profile" method="POST">
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <div class="grid grid-cols-6 gap-6">
@@ -65,7 +65,7 @@
                                 <div class="col-span-6">
                                     <label for="address" class="block text-sm font-medium text-gray-700">Adresse</label>
                                     <input type="text" name="address" id="address" autocomplete="street-address"
-                                           placeholder="666 acacia avenue" value="{{ $user->address }}"
+                                           placeholder="666 Acacia Avenue" value="{{ $user->address }}"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
