@@ -56,7 +56,7 @@
                                 <div class="col-span-6 sm:col-span-6">
                                     <label for="email_address"
                                            class="block text-sm font-medium text-gray-700">Email</label>
-                                    <input type="text" name="email_address" id="email_address" value="{{ $user->email }}"
+                                    <input type="text" name="email_address" id="email_address" value="{{ $user->email}}"
                                            placeholder="john.kramer@gmail.com" autocomplete="email"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
