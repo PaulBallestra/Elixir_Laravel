@@ -41,7 +41,7 @@
                                     <label for="family-name"
                                            class="block text-sm font-medium text-gray-700">Nom</label>
                                     <input type="text" name="family-name" id="family-name" placeholder="Kramer"
-                                           autocomplete="{{ $user->name }}"
+                                           autocomplete="name" value="{{ $user->name }}"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
@@ -49,30 +49,30 @@
                                     <label for="given-name"
                                            class="block text-sm font-medium text-gray-700">Prénom</label>
                                     <input type="text" name="given-name" id="given-name" placeholder="John"
-                                           autocomplete="{{ $user->name }}"
+                                           autocomplete="firstname" value="{{ $user->firstname }}"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-6">
                                     <label for="email_address"
                                            class="block text-sm font-medium text-gray-700">Email</label>
-                                    <input type="text" name="email_address" id="email_address"
+                                    <input type="text" name="email_address" id="email_address" value="{{ $user->email }}"
                                            placeholder="john.kramer@gmail.com" autocomplete="email"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
                                 <!-- ADRESSE -->
                                 <div class="col-span-6">
-                                    <label for="adress" class="block text-sm font-medium text-gray-700">Adresse</label>
-                                    <input type="text" name="adress" id="adress" autocomplete="street-address"
-                                           placeholder="666 acacia avenue"
+                                    <label for="address" class="block text-sm font-medium text-gray-700">Adresse</label>
+                                    <input type="text" name="address" id="address" autocomplete="street-address"
+                                           placeholder="666 acacia avenue" value="{{ $user->address }}"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-3">
                                     <label for="town"
                                            class="block text-sm font-medium text-gray-700">Ville</label>
-                                    <input type="text" name="town" id="town" placeholder="Paris"
+                                    <input type="text" name="town" id="town" placeholder="Paris" value="{{ $user->town }}"
                                            autocomplete="town"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
@@ -81,7 +81,7 @@
                                     <label for="postal_code"
                                            class="block text-sm font-medium text-gray-700">Code postal</label>
                                     <input type="text" name="postal_code" id="postal_code" placeholder="75010"
-                                           autocomplete="postal_code"
+                                           autocomplete="postal_code" value="{{ $user->postal_code }}"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 

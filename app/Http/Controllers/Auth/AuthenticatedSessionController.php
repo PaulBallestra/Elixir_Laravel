@@ -40,9 +40,7 @@ class AuthenticatedSessionController extends Controller
 
     public function profile()
     {
-        $user = Auth::user(); //Récup de l'user
-
-        return view('auth.profile', $user);
+        return view('auth.profile', ['user' => Auth::user()]);
     }
 
     public function admin()
