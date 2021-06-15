@@ -20,7 +20,6 @@ class UserController extends Controller
 
     public function saveProfile(ProfileFormRequest $request)
     {
-
         //Variable pour preparer la requete
         $update = [];
 
