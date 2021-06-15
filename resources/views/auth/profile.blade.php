@@ -39,18 +39,18 @@
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <div class="grid grid-cols-6 gap-6">
                                 <div class="col-span-6 sm:col-span-3">
-                                    <label for="family-name"
+                                    <label for="family_name"
                                            class="block text-sm font-medium text-gray-700">Nom</label>
-                                    <input type="text" name="family-name" id="family-name" placeholder="Kramer"
-                                           autocomplete="name" value="{{ $user->family_name }}"
+                                    <input type="text" name="family_name" id="family_name" placeholder="Kramer"
+                                           autocomplete="family_name" value="{{ $user->family_name }}"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-3">
-                                    <label for="given-name"
+                                    <label for="given_name"
                                            class="block text-sm font-medium text-gray-700">Prénom</label>
-                                    <input type="text" name="given-name" id="given-name" placeholder="John"
-                                           autocomplete="firstname" value="{{ $user->given_name }}"
+                                    <input type="text" name="given_name" id="given_name" placeholder="John"
+                                           autocomplete="given_name" value="{{ $user->given_name }}"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
@@ -41,11 +42,11 @@ Route::get('/abonnement/yearly', [AuthenticatedSessionController::class, 'yearly
     ->name('yearlyAbonnement');
 
 //PROFILE
-Route::get('/profile', [AuthenticatedSessionController::class, 'profile'])
+Route::get('/profile', [UserController::class, 'profile'])
     ->middleware('auth')
     ->name('profile');
 
-Route::post('/profile', [AuthenticatedSessionController::class, 'saveProfile'])
+Route::post('/profile', [UserController::class, 'saveProfile'])
     ->middleware('auth')
     ->name('profile.save');
 
