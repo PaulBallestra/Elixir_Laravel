@@ -28,6 +28,17 @@
         </div>
     </div>
 
+    <!-- ERREURS -->
+    @if ($errors->any())
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mx-5 mb-3" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <!-- INFOS PERSONNELLES -->
     <!-- INFOS EMAIL PASSWORD -->
     <div class="mb-5 sm:mt-0">
@@ -59,6 +70,14 @@
                                            class="block text-sm font-medium text-gray-700">Email</label>
                                     <input type="text" name="email_address" id="email_address" value="{{ $user->email_address}}"
                                            placeholder="john.kramer@gmail.com" autocomplete="email"
+                                           class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+
+                                <div class="col-span-6 sm:col-span-6">
+                                    <label for="password"
+                                           class="block text-sm font-medium text-gray-700">Password</label>
+                                    <input type="password" name="password" id="password"
+                                           placeholder="************" autocomplete="password"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
