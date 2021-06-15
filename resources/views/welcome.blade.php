@@ -60,7 +60,7 @@
 
 
             <!-- INFOS -->
-            <div class="grid sm:grid-flow-col md:grid-cols-3 gap-4">
+            <div class="grid sm:grid-flow-col md:grid-cols-3 gap-4 mt-2" style="background-color: white;">
 
                 <div class="text-center mb-4">
 

@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
@@ -26,14 +22,11 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->string('town')->nullable();
             $table->string('postal_code')->nullable();
+            //ISADMIN
+            $table->boolean('is_admin')->default(false);
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('users');

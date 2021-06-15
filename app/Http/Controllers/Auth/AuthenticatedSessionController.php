@@ -34,12 +34,6 @@ class AuthenticatedSessionController extends Controller
         return view('auth.yearly-abonnement');
     }
 
-    /* ADMIN */
-    public function admin()
-    {
-        return view('auth.admin');
-    }
-
 
     public function store(LoginRequest $request)
     {

@@ -12,11 +12,6 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, Billable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'family_name',
         'given_name',
@@ -24,14 +19,10 @@ class User extends Authenticatable
         'password',
         'address',
         'town',
-        'postal_code'
+        'postal_code',
+        'is_admin'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password',
         'remember_token',

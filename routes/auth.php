@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
@@ -51,9 +52,18 @@ Route::post('/profile', [UserController::class, 'saveProfile'])
     ->name('profile.save');
 
 //ADMIN
-Route::get('/admin', [AuthenticatedSessionController::class, 'admin'])
+//Admin dashboard
+Route::get('/admin', [AdminController::class, 'admin'])
     ->middleware('auth')
     ->name('admin');
+
+//Admin All users
+Route::get('/admin/users', [AdminController::class, 'adminUsers'])
+    ->middleware('auth')
+    ->name('admin.users');
+
+//Admin Current user
+Route::get('/admin/users/{id}', [AdminController::class, 'adminCurrentUser'])->middleware('auth');
 
 //LOGIN
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])

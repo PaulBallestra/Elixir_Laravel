@@ -232,6 +232,11 @@ footer{
 
 }
 
+/* ADMIN PAGES */
+td{
+    text-align: center;
+}
+
 *,
 ::before,
 ::after {

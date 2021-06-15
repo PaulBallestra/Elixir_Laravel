@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Elixir - Profil</title>
+    <title>Elixir - Admin : User {{ $user->id }}</title>
 
     <!-- INTEGRATION TAILWIND -->
     <meta charset="UTF-8"/>
@@ -24,7 +24,7 @@
     <!-- TITLE DE LA PAGE -->
     <div class="grid grid-cols-6 gap-4 mb-4">
         <div class="col-start-2 col-span-4">
-            <h1 class="titleCustomClass mt-4 text-center"> PROFIL </h1>
+            <h1 class="titleCustomClass mt-4 text-center"> USER {{ $user->id }} </h1>
         </div>
     </div>
 
@@ -39,21 +39,21 @@
         </div>
     @endif
 
-    <!-- VALIDATIONS -->
+<!-- VALIDATIONS -->
     @if ($updated)
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mx-5 mb-3" role="alert">
             <ul>
-                <li> Votre profil a été mis à jour ! </li>
+                <li> L'user a été mis à jour ! </li>
             </ul>
         </div>
-    @endif
+@endif
 
-    <!-- INFOS PERSONNELLES -->
+<!-- INFOS PERSONNELLES -->
     <!-- INFOS EMAIL PASSWORD -->
     <div class="mb-5 sm:mt-0">
         <div class="md:grid md:grid-cols-4 md:gap-6">
             <div class="mt-5 md:mt-0 md:col-start-2 md:col-end-4">
-                <form action="/profile" method="POST">
+                <form action="/admin/users/{{ $user->id }}" method="POST">
                     @csrf
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
@@ -114,6 +114,9 @@
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
+                                <label class="inline-flex items-center mt-3">
+                                    <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" @if($user->is_admin) checked @endif><span class="ml-2 text-gray-700">isAdmin</span>
+                                </label>
 
                             </div>
                         </div>
