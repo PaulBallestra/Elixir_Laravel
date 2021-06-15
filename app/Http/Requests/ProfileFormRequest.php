@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProfileFormRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class ProfileFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -24,12 +26,12 @@ class ProfileFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
-            'firstname' => 'required|string|max:255',
-            'email' => 'required|email',
-            'address' => 'required|string|max:255',
-            'town' => 'required|string|max:255',
-            'postal_code' => 'required|int'
+            'family_name' => 'required|string|max:255',
+            'given_name' => 'required|string|max:255',
+            'email_address' => 'required|email',
+            'address' => 'nullable|string|max:255',
+            'town' => 'nullable|string|max:255',
+            'postal_code' => 'nullable'
         ];
     }
 }

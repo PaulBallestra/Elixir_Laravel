@@ -17,24 +17,24 @@
 
         <!-- Name -->
             <div>
-                <x-label for="name" :value="__('Nom')"/>
+                <x-label for="family_name" :value="__('Nom')"/>
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required
+                <x-input id="family_name" class="block mt-1 w-full" type="text" name="family_name" :value="old('Nom')" required
                          autofocus/>
             </div>
 
             <!-- PRENOM -->
             <div class="mt-4">
-                <x-label for="firstname" :value="__('Prenom')"/>
+                <x-label for="given_name" :value="__('Prenom')"/>
 
-                <x-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" :value="old('Prenom')" required autofocus/>
+                <x-input id="given_name" class="block mt-1 w-full" type="text" name="given_name" :value="old('Prenom')" required autofocus/>
             </div>
 
             <!-- Email Address -->
             <div class="mt-4">
-                <x-label for="email" :value="__('Email')"/>
+                <x-label for="email_address" :value="__('Email')"/>
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required/>
+                <x-input id="email_address" class="block mt-1 w-full" type="email" name="email_address" :value="old('Email')" required/>
             </div>
 
             <!-- Password -->
