@@ -45,7 +45,7 @@ class AbonnementController extends Controller
             ->newSubscription('default', $plan->stripe_id)
             ->create($request->payment_method);
 
-        return view('auth.abonnements');
+        return redirect('/abonnement');
     }
 
     public function storeYearly(Request $request)
@@ -65,7 +65,7 @@ class AbonnementController extends Controller
             ->newSubscription('default', $plan->stripe_id)
             ->create($request->payment_method);
 
-        return view('auth.abonnements');
+        return redirect('/abonnement');
     }
 
 }
