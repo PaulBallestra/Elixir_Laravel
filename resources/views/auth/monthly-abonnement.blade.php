@@ -34,6 +34,17 @@
         <h1 class="titleCustomClass text-center col-start-2 text-bold montserrat"> 24.99€/Mois </h1>
     </div>
 
+    <!-- ERREURS -->
+    @if ($errors->any())
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mx-5 mb-5" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <!-- CONTENT -->
     <form method="POST" class="text-center" id="payment-form">
     @csrf
@@ -124,7 +135,7 @@
 
 <script>
 
-    const stripe = Stripe('pk_test_51J2FIUHeClf13gbZP9Wt3FBG4jdYwnC6zmU2tMmNEd2ZmS6zxCd8HDyvWzVIBR464tvoz3KrTtZWUajFKZUANMkm00LIC86X3f');
+    const stripe = Stripe( '{{$stripeKey}}' );
     const elements = stripe.elements();
 
     const card = elements.create("card");
@@ -165,6 +176,18 @@
             displayError.style.display = 'block';
         } else {
             console.log(setupIntent);
+
+            let displayError = document.getElementById('card-errors');
+            displayError.textContent = '';
+            displayError.style.display = 'none';
+
+            let payment_method = document.createElement('input');
+            payment_method.setAttribute('type', 'hidden');
+            payment_method.setAttribute('name', 'payment_method');
+            payment_method.value = setupIntent.payment_method;
+
+            form.appendChild(payment_method);
+            form.submit();
         }
 
     });

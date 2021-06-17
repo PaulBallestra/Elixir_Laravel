@@ -151,7 +151,7 @@
 
 <script>
 
-    const stripe = Stripe('pk_test_51J2FIUHeClf13gbZP9Wt3FBG4jdYwnC6zmU2tMmNEd2ZmS6zxCd8HDyvWzVIBR464tvoz3KrTtZWUajFKZUANMkm00LIC86X3f');
+    const stripe = Stripe( '{{$stripeKey}}' );
     const elements = stripe.elements();
 
     const card = elements.create("card");
@@ -177,11 +177,11 @@
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const {setupIntent, error} = await stripe.confirmCardSetup(
+        const { setupIntent, error } = await stripe.confirmCardSetup(
             clientSecret, {
                 payment_method: {
                     card: card,
-                    billing_details: {name: cardHolderName.value}
+                    billing_details: { name: cardHolderName.value }
                 }
             }
         );
@@ -192,6 +192,18 @@
             displayError.style.display = 'block';
         } else {
             console.log(setupIntent);
+
+            let displayError = document.getElementById('card-errors');
+            displayError.textContent = '';
+            displayError.style.display = 'none';
+
+            let payment_method = document.createElement('input');
+            payment_method.setAttribute('type', 'hidden');
+            payment_method.setAttribute('name', 'payment_method');
+            payment_method.value = setupIntent.payment_method;
+
+            form.appendChild(payment_method);
+            form.submit();
         }
 
     });
