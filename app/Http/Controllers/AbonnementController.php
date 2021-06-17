@@ -51,7 +51,7 @@ class AbonnementController extends Controller
         } catch (IncompletePayment $exception) {
 
             return redirect()->route('cashier.payment', [
-                $exception->payment->id, 'redirect' => route('monthlyAbonnement')
+                $exception->payment->id, 'redirect' => route('abonnement')
             ]);
 
         }
@@ -81,7 +81,7 @@ class AbonnementController extends Controller
         } catch (IncompletePayment $exception) {
 
             return redirect()->route('cashier.payment', [
-                $exception->payment->id, 'redirect' => route('yearlyAbonnement')
+                $exception->payment->id, 'redirect' => route('abonnement')
             ]);
 
         }
