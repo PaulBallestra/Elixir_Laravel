@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Plan;
 use Illuminate\Http\Request;
+use Laravel\Cashier\Exceptions\IncompletePayment;
 
 class AbonnementController extends Controller
 {
@@ -41,9 +42,19 @@ class AbonnementController extends Controller
         //Récup du plan
         $plan = Plan::find($request->plan);
 
-        $request->user()
-            ->newSubscription('default', $plan->stripe_id)
-            ->create($request->payment_method);
+        try {
+
+            $subscription = $request->user()
+                ->newSubscription('default', $plan->stripe_id)
+                ->create($request->payment_method);
+
+        } catch (IncompletePayment $exception) {
+
+            return redirect()->route('cashier.payment', [
+                $exception->payment->id, 'redirect' => route('monthlyAbonnement')
+            ]);
+
+        }
 
         return redirect('/abonnement');
     }
@@ -61,9 +72,19 @@ class AbonnementController extends Controller
         //Récup du plan
         $plan = Plan::find($request->plan);
 
-        $request->user()
-            ->newSubscription('default', $plan->stripe_id)
-            ->create($request->payment_method);
+        try {
+
+            $subscription = $request->user()
+                ->newSubscription('default', $plan->stripe_id)
+                ->create($request->payment_method);
+
+        } catch (IncompletePayment $exception) {
+
+            return redirect()->route('cashier.payment', [
+                $exception->payment->id, 'redirect' => route('yearlyAbonnement')
+            ]);
+
+        }
 
         return redirect('/abonnement');
     }

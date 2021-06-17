@@ -109,10 +109,7 @@
 
 
                 </div>
-
-
             </div>
-
         </div>
 
         <button id="card-button" data-secret="{{ $intent->client_secret }}"
