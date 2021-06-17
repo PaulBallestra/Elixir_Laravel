@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AbonnementController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -28,19 +29,23 @@ Route::get('/service', [App\Http\Controllers\Controller::class, 'service'])->nam
 Route::get('/contact', [App\Http\Controllers\Controller::class, 'contact'])->name('contact');
 
 //ABONNEMENT
-Route::get('/abonnement', [AuthenticatedSessionController::class, 'abonnement'])
+Route::get('/abonnement', [AbonnementController::class, 'abonnement'])
     ->middleware('auth')
     ->name('abonnement');
 
 //PAIEMENT MONTHLY ABONNEMENT
-Route::get('/abonnement/monthly', [AuthenticatedSessionController::class, 'monthlyAbonnement'])
+Route::get('/abonnement/monthly', [AbonnementController::class, 'monthlyAbonnement'])
     ->middleware('auth')
     ->name('monthlyAbonnement');
 
 //PAIEMENT YEARLY ABONNEMENT
-Route::get('/abonnement/yearly', [AuthenticatedSessionController::class, 'yearlyAbonnement'])
+Route::get('/abonnement/yearly', [AbonnementController::class, 'yearlyAbonnement'])
     ->middleware('auth')
     ->name('yearlyAbonnement');
+
+//Route::post('/abonnement/monthly', CheckoutController::class, 'monthlyAbonnement')->middleware('auth')->name('checkoutMonthly');
+//Route::post('/abonnement/yearly', CheckoutController::class, 'yearlyAbonnement')->middleware('auth')->name('checkoutYearly');
+
 
 //PROFILE
 Route::get('/profile', [UserController::class, 'profile'])

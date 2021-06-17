@@ -80,7 +80,7 @@
                             </div>
                         </div>
                         <div class="text-center mt-8 mb-8 mt-auto">
-                            <a href="@if(Route::has('login')) /abonnement @else /login @endif"
+                            <a href="@if(Route::has('login')) /abonnement/monthly @else /login @endif"
                                class="btnCustom inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 hover:text-white hover:no-underline"> S'abonner </a>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                         <div class="w-full text-center mb-8 mt-auto">
-                            <a href="@if(Route::has('login')) /abonnement @else /login @endif"
+                            <a href="@if(Route::has('login')) /abonnement/yearly @else /login @endif"
                                class="btnCustom inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 hover:text-white hover:no-underline"> S'abonner </a>
                         </div>
                     </div>

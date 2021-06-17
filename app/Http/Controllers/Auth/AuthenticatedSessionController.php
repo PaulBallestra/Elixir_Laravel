@@ -16,24 +16,6 @@ class AuthenticatedSessionController extends Controller
         return view('auth.login');
     }
 
-    public function abonnement()
-    {
-        return view('auth.abonnements');
-    }
-
-    public function monthlyAbonnement()
-    {
-        /*return view('update-payment-method', [
-            'intent' => $user->createSetupIntent()
-        ]); */
-        return view('auth.monthly-abonnement');
-    }
-
-    public function yearlyAbonnement()
-    {
-        return view('auth.yearly-abonnement');
-    }
-
 
     public function store(LoginRequest $request)
     {

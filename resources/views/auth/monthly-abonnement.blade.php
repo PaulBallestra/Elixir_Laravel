@@ -33,7 +33,9 @@
     </div>
 
     <!-- CONTENT -->
-    <div class="text-center">
+    <form action="/abonnement/monthly" method="POST" class="text-center">
+
+        @csrf
 
         <!-- TIRANTS -->
         <div class="grid grid-cols-6 mb-3">
@@ -85,6 +87,10 @@
 
                     <!-- STRIPE -->
 
+
+
+
+
                 </div>
 
 
@@ -92,8 +98,11 @@
 
         </div>
 
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                Payer
+            </button>
 
-    </div>
+    </form>
 
 
 </div>
