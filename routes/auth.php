@@ -43,8 +43,8 @@ Route::get('/abonnement/yearly', [AbonnementController::class, 'yearlyAbonnement
     ->middleware('auth')
     ->name('yearlyAbonnement');
 
-//Route::post('/abonnement/monthly', CheckoutController::class, 'monthlyAbonnement')->middleware('auth')->name('checkoutMonthly');
-//Route::post('/abonnement/yearly', CheckoutController::class, 'yearlyAbonnement')->middleware('auth')->name('checkoutYearly');
+Route::post('/abonnement/monthly', [AbonnementController::class, 'storeMonthly'])->middleware('auth')->name('checkoutMonthly');
+Route::post('/abonnement/yearly', [AbonnementController::class, 'storeYearly'])->middleware('auth')->name('checkoutYearly');
 
 
 //PROFILE

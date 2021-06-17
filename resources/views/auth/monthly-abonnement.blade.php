@@ -11,6 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <script src="https://js.stripe.com/v3/"></script>
+
     @livewireStyles
 </head>
 <body class="antialiased">
@@ -33,9 +35,8 @@
     </div>
 
     <!-- CONTENT -->
-    <form action="/abonnement/monthly" method="POST" class="text-center">
-
-        @csrf
+    <form method="POST" class="text-center" id="payment-form">
+    @csrf
 
         <!-- TIRANTS -->
         <div class="grid grid-cols-6 mb-3">
@@ -49,8 +50,8 @@
 
                     <select for="guitarTirant" class="mx-3">
 
-                        <option value="1046" selected> 10-46 </option>
-                        <option value="1052"> 10-52 </option>
+                        <option value="1046" selected> 10-46</option>
+                        <option value="1052"> 10-52</option>
 
                     </select>
 
@@ -63,8 +64,8 @@
 
                     <select for="basseTirant" class="mx-3">
 
-                        <option value="45105" selected> 45-105 </option>
-                        <option value="40110"> 40-110 </option>
+                        <option value="45105" selected> 45-105</option>
+                        <option value="40110"> 40-110</option>
 
                     </select>
 
@@ -85,10 +86,15 @@
 
                     <p class="text-center"> 2 - Entrez vos coordonnées bancaire </p>
 
+                    <input type="text" id="titulaire" name="titulaire" class="mt-3 p-1" placeholder="Titulaire" style="background-color: white; border-radius: 3px; border: 1px solid #00AEEF;"/>
+
                     <!-- STRIPE -->
+                    <div id="card-element" class="m-3 p-4"
+                         style="background-color: white; border-radius: 3px; border: 1px solid #00AEEF;">
+                    </div>
 
-
-
+                    <!-- ERRORS STRIPE -->
+                    <div id="card-errors" role="alert" hidden class="bg-red-100 border border-red-400 text-red-700 py-2 rounded relative"></div>
 
 
                 </div>
@@ -98,9 +104,11 @@
 
         </div>
 
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                Payer
-            </button>
+        <button id="card-button" data-secret="{{ $intent->client_secret }}"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit">
+            Payer
+        </button>
 
     </form>
 
@@ -113,3 +121,52 @@
 @livewireScripts
 </body>
 </html>
+
+<script>
+
+    const stripe = Stripe('pk_test_51J2FIUHeClf13gbZP9Wt3FBG4jdYwnC6zmU2tMmNEd2ZmS6zxCd8HDyvWzVIBR464tvoz3KrTtZWUajFKZUANMkm00LIC86X3f');
+    const elements = stripe.elements();
+
+    const card = elements.create("card");
+    card.mount("#card-element");
+
+    const cardHolderName = document.getElementById('titulaire');
+    const cardButton = document.getElementById('card-button');
+    const clientSecret = cardButton.dataset.secret;
+
+    card.on('change', ({error}) => {
+        let displayError = document.getElementById('card-errors');
+        if (error) {
+            displayError.textContent = error.message;
+            displayError.style.display = 'block';
+        } else {
+            displayError.textContent = '';
+            displayError.style.display = 'none';
+        }
+    });
+
+    var form = document.getElementById('payment-form');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const { setupIntent, error } = await stripe.confirmCardSetup(
+            clientSecret, {
+                payment_method: {
+                    card: card,
+                    billing_details: { name: cardHolderName.value }
+                }
+            }
+        );
+
+        if (error) {
+            let displayError = document.getElementById('card-errors');
+            displayError.textContent = error.message;
+            displayError.style.display = 'block';
+        } else {
+            console.log(setupIntent);
+        }
+
+    });
+
+</script>

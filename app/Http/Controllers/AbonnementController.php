@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Plan;
 use Illuminate\Http\Request;
 
 class AbonnementController extends Controller
@@ -11,22 +12,28 @@ class AbonnementController extends Controller
         return view('auth.abonnements');
     }
 
-    public function monthlyAbonnement()
+    public function monthlyAbonnement(Request $request)
     {
-        /*return view('update-payment-method', [
-            'intent' => $user->createSetupIntent()
-        ]); */
-        return view('auth.monthly-abonnement');
+        $intent = $request->user()->createSetupIntent();
+        return view('auth.monthly-abonnement', compact('intent'));
     }
 
-    public function yearlyAbonnement()
+    public function yearlyAbonnement(Request $request)
     {
-        return view('auth.yearly-abonnement');
+        $intent = $request->user()->createSetupIntent();
+        return view('auth.yearly-abonnement', compact('intent'));
     }
 
-    public function store()
+    public function storeMonthly(Request $request)
     {
+        $request->request->add(['plan' => '1']);
+        dd($request->all());
+    }
 
+    public function storeYearly(Request $request)
+    {
+        $request->request->add(['plan' => '2']);
+        dd($request->all());
     }
 
 }
