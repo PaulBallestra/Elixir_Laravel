@@ -64,9 +64,10 @@
                                        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-sans titleHeaderClass">LOGOUT</a>
 
                                     <!-- CHECK IS ADMIN -->
+                                    @if(Auth::user()->is_admin === 1)
                                     <a href="/admin"
                                        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-sans titleHeaderClass">ADMIN</a>
-
+                                    @endif
                                     <a href="/profile"
                                        class="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-sans @if(Request::segment(1) === 'profile') bg-gray-900 text-white @endif">
                                         <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg"
