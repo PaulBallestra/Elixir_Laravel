@@ -18,7 +18,7 @@
 <!-- HEADER -->
 <livewire:header/>
 
-<div class="backgroundContent pb-3">
+<div class="backgroundContent pb-5">
 
 
     <!-- TITLE DE LA PAGE -->
