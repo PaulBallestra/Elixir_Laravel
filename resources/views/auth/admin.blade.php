@@ -36,7 +36,7 @@
         <a href="admin/users">
             <div class="py-4 px-8 bg-white shadow-lg rounded-lg my-3">
                 <div>
-                    <h2 class="text-gray-800 text-3xl font-semibold">12 Users</h2>
+                    <h2 class="text-gray-800 text-3xl font-semibold">{{ $nbUsers }} Users</h2>
                     <p class="mt-2 text-gray-600">Gérez vos utilisateurs, leurs emails, mot de passe, administrateurs
                         ...</p>
                 </div>
