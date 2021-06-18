@@ -28,10 +28,10 @@
     </div>
 
     <!-- VALIDATIONS -->
-    @if ($subscribed)
+    @if($subscribed)
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mx-5 mb-3" role="alert">
             <ul>
-                <li> Votre abonnement a bien été souscrit ! </li>
+                <li> ABONNEMENT AJOUTÉ </li>
             </ul>
         </div>
     @endif

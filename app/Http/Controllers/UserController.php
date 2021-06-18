@@ -65,10 +65,11 @@ class UserController extends Controller
         //Récupération de l'user
         $user = User::findOrFail(Auth::user()->id);
 
+        /*
         //update de l'email si besoin
         if($request->email_address != $user->email_address){
             $update += ['email_address' => $request->email_address];
-        }
+        } */
 
         // UPDATE DE L'USER
         DB::table('users')

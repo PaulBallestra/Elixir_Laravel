@@ -43,7 +43,6 @@ class AbonnementController extends Controller
         $plan = Plan::find($request->plan);
 
         try {
-
             $subscription = $request->user()
                 ->newSubscription('default', $plan->stripe_id)
                 ->create($request->payment_method);
@@ -51,12 +50,12 @@ class AbonnementController extends Controller
         } catch (IncompletePayment $exception) {
 
             return redirect()->route('cashier.payment', [
-                $exception->payment->id, 'redirect' => route('abonnement', ['subscribed' => true])
+                $exception->payment->id, 'redirect' => route('abonnement')
             ]);
 
         }
 
-        return redirect('/abonnement')->with('subscribed', true);
+        return view('auth.abonnements', ['subscribed' => true]);
     }
 
     public function storeYearly(Request $request)
@@ -81,12 +80,12 @@ class AbonnementController extends Controller
         } catch (IncompletePayment $exception) {
 
             return redirect()->route('cashier.payment', [
-                $exception->payment->id, 'redirect' => route('abonnement', ['subscribed' => true])
+                $exception->payment->id, 'redirect' => route('abonnement')
             ]);
 
         }
 
-        return redirect('/abonnement')->with('subscribed', true);
+        return view('auth.abonnements', ['subscribed' => true]);
     }
 
 }

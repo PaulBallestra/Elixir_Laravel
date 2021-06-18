@@ -28,6 +28,17 @@
         </div>
     </div>
 
+
+    @if($customError)
+
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mx-5 mb-3" role="alert">
+            <ul>
+                <li> {{ $customError }} </li>
+            </ul>
+        </div>
+
+    @endif
+
     <!-- ERREURS -->
     @if ($errors->any())
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mx-5 mb-5" role="alert">
@@ -39,14 +50,15 @@
         </div>
     @endif
 
-<!-- VALIDATIONS -->
+    <!-- VALIDATIONS -->
     @if ($updated)
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mx-5 mb-3" role="alert">
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mx-5 mb-3"
+             role="alert">
             <ul>
-                <li> L'user a été mis à jour ! </li>
+                <li> L'user a été mis à jour !</li>
             </ul>
         </div>
-@endif
+    @endif
 
 <!-- INFOS PERSONNELLES -->
     <!-- INFOS EMAIL PASSWORD -->
@@ -77,7 +89,8 @@
                                 <div class="col-span-6 sm:col-span-6">
                                     <label for="email_address"
                                            class="block text-sm font-medium text-gray-700">Email</label>
-                                    <input type="text" name="email_address" id="email_address" value="{{ $user->email_address}}"
+                                    <input type="text" name="email_address" id="email_address"
+                                           value="{{ $user->email_address}}"
                                            placeholder="john.kramer@gmail.com" autocomplete="email"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
@@ -101,7 +114,8 @@
                                 <div class="col-span-6 sm:col-span-3">
                                     <label for="town"
                                            class="block text-sm font-medium text-gray-700">Ville</label>
-                                    <input type="text" name="town" id="town" placeholder="Paris" value="{{ $user->town }}"
+                                    <input type="text" name="town" id="town" placeholder="Paris"
+                                           value="{{ $user->town }}"
                                            autocomplete="town"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
@@ -114,8 +128,10 @@
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
-                                <label class="inline-flex items-center mt-3">
-                                    <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" @if($user->is_admin) checked @endif><span class="ml-2 text-gray-700">isAdmin</span>
+                                <label class="inline-flex items-center mt-3" for="is_admin">
+                                    <input type="checkbox" id="is_admin" name="is_admin" class="form-checkbox h-5 w-5 text-gray-600"
+                                           @if($user->is_admin) checked @endif><span
+                                        class="ml-2 text-gray-700">isAdmin</span>
                                 </label>
 
                             </div>
