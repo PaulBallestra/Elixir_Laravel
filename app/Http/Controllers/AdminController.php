@@ -19,6 +19,7 @@ class AdminController extends Controller
         return view('auth.admin', ['nbUsers' => $nbUsers]);
     }
 
+    /* USERS */
     //LIST USERS
     public function adminUsers()
     {
@@ -109,5 +110,13 @@ class AdminController extends Controller
         $users = DB::table('users')->get();
 
         return redirect('/admin/users')->with(['users' => $users, 'deleted' => true]);
+    }
+
+
+    /* ACTUALITES */
+    public function adminActualites()
+    {
+        $actualites = DB::table('users')->get(); //get all users
+        return view('auth.admin-actualites', ['actualites' => $actualites, 'deleted' => false]);
     }
 }

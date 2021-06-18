@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Elixir - Users : Admin</title>
+    <title>Elixir - Actualités : Admin</title>
 
     <!-- INTEGRATION TAILWIND -->
     <meta charset="UTF-8"/>
@@ -24,22 +24,10 @@
     <!-- TITLE DE LA PAGE -->
     <div class="grid grid-cols-6 gap-4 mb-4">
         <div class="col-start-2 col-span-4">
-            <h1 class="titleCustomClass mt-4 text-center"> ADMIN - USERS </h1>
-            <h3 class="sousTitleCustomClass text-center"> Gérez vos utilisateurs, leurs emails, mot de passe, administrateurs
-                ... </h3>
+            <h1 class="titleCustomClass mt-4 text-center"> ADMIN - ACTUALITÉS </h1>
+            <h3 class="sousTitleCustomClass text-center"> Gérez vos actualités, leurs description, image, ... </h3>
         </div>
     </div>
-
-    <!-- VALIDATIONS -->
-    @if ($deleted)
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mx-5 mb-3"
-             role="alert">
-            <ul>
-                <li> User supprimé avec succès ! </li>
-            </ul>
-        </div>
-    @endif
-
 
 
     <table class="table-fixed mx-auto">
@@ -54,24 +42,24 @@
         </thead>
         <tbody>
 
-        @foreach($users as $user)
+        @foreach($actualites as $actualite)
 
             <tr style="border-bottom: 1px solid black;">
-                <td>{{ $user->id }}</td>
-                <td>{{ $user->family_name }} {{ $user->given_name }} - {{ $user->email_address }}</td>
+                <td>{{$actualite->id }}</td>
+                <td>{{ $actualite->family_name }} {{ $actualite->given_name }} - {{ $actualite->email_address }}</td>
                 <td> Aucun </td>
-                <td>{{ $user->is_admin }}</td>
+                <td>{{ $actualite->is_admin }}</td>
                 <td>
 
                     <div class="grid grid-cols-2">
 
                         <div class="text-center">
-                            <a href="/admin/users/{{ $user->id }}"
+                            <a href="/admin/users/{{ $actualite->id }}"
                                class="btnCustom inline-block bg-yellow-500 text-black px-4 py-2 my-auto rounded hover:bg-yellow-700 hover:text-white hover:no-underline"> Modifier </a>
                         </div>
 
                         <div class="text-center">
-                            <a href="/admin/users/{{ $user->id }}/delete"
+                            <a href="/admin/users/{{ $actualite->id }}/delete"
                                class="btnCustom inline-block bg-red-500 text-black px-4 py-2 rounded hover:bg-red-700 hover:text-white hover:no-underline"> Supprimer </a>
                         </div>
 

@@ -70,8 +70,14 @@ Route::get('/admin/users', [AdminController::class, 'adminUsers'])
 //Admin Current user
 Route::get('/admin/users/{id}', [AdminController::class, 'adminCurrentUser'])->middleware('auth');
 Route::post('/admin/users/{id}', [AdminController::class, 'adminUpdateCurrentUser'])->middleware('auth');
-
 Route::get('/admin/users/{id}/delete', [AdminController::class, 'adminDeleteCurrentUser'])->middleware('auth');
+
+//ACTU ADMIN
+//Admin All Actualités
+Route::get('/admin/actualites', [AdminController::class, 'adminActualites'])->middleware('auth');
+
+//Admin Current actualité
+Route::get('/admin/actualites/{id}', [AdminController::class, 'adminCurrentActualite'])->middleware('auth');
 
 //LOGIN
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
