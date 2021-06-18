@@ -43,6 +43,8 @@ class UserController extends Controller
                 'family_name' => $request->family_name,
                 'given_name' => $request->given_name,
             ];
+        }else if(is_null($request->address) || is_null($request->town) || is_null($request->postal_code)){
+            return view('auth.profile', ['user' => Auth::user(), 'updated' => false, 'customError' => 'L\'adresse est incomplète !']);
         }else{
             $update += [
                 'family_name' => $request->family_name,

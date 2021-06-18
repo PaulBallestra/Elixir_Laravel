@@ -32,7 +32,7 @@
 
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mx-5 mb-3" role="alert">
             <ul>
-                <li> Cette adresse email n'est pas disponible !</li>
+                <li> {{ $customError }} </li>
             </ul>
         </div>
 
