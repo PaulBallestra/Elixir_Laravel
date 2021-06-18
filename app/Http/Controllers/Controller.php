@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\DB;
 
 class Controller extends BaseController
 {
@@ -19,7 +20,8 @@ class Controller extends BaseController
     //Toutes les actualites
     public function actualites()
     {
-        return view('actualites');
+        $actualites = DB::table('actualites')->get();
+        return view('actualites', ['actualites' => $actualites]);
     }
 
     //Une seule actualite
