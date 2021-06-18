@@ -15,7 +15,7 @@ class UserController extends Controller
     /* PROFILE */
     public function profile()
     {
-        return view('auth.profile', ['user' => Auth::user(), 'updated' => false]);
+        return view('auth.profile', ['user' => Auth::user(), 'updated' => false, 'customError' => false]);
     }
 
     public function saveProfile(ProfileFormRequest $request)
@@ -23,14 +23,28 @@ class UserController extends Controller
         //Variable pour preparer la requete
         $update = [];
 
+        //Check de l'email a la main
+        if($request->email_address === Auth::user()->email_address){
+            //On n'ajoute rien dans le update
+        }else if(User::where('email_address', '=', $request->email_address)->first()){
+
+            //REDIRECT EXISTE DEJA
+            return view('auth.profile', ['user' => Auth::user(), 'updated' => false, 'customError' => 'Cette adresse email est déjà utilisée !']);
+
+        }else{
+            $update += [
+                'email_address' => $request->email_address
+            ];
+        }
+
         //VERIFIEZ QU'IL NE REMPLI PAS QU'UN SEUL CHAMPS DE L'ADDRESSE
         if(is_null($request->address) && is_null($request->town) && is_null($request->postal_code)){
-            $update = [
+            $update += [
                 'family_name' => $request->family_name,
                 'given_name' => $request->given_name,
             ];
         }else{
-            $update = [
+            $update += [
                 'family_name' => $request->family_name,
                 'given_name' => $request->given_name,
                 'address' => $request->address,
@@ -65,6 +79,6 @@ class UserController extends Controller
         $valuesChangedUser = DB::table('users')->where(['id' => $user->id])->first();
 
         //On réaffiche la page avec les infos modifiées et un message
-        return view('auth.profile', ['user' => $valuesChangedUser, 'updated' => true]);
+        return view('auth.profile', ['user' => $valuesChangedUser, 'updated' => true, 'customError' => false]);
     }
 }

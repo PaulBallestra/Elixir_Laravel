@@ -27,9 +27,16 @@
         </div>
     </div>
 
+    <!-- VALIDATIONS -->
+    @if ($subscribed)
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mx-5 mb-3" role="alert">
+            <ul>
+                <li> Votre abonnement a bien été souscrit ! </li>
+            </ul>
+        </div>
+    @endif
+
     <!-- ABONNEMENT CONTENT -->
-
-
     <!-- Si aucun abonnement -->
     <h3 class="sousTitleCustomClass text-center mx-auto"> Vous n'avez aucun abonnement pour le moment. </h3>
     <h3 class="sousTitleCustomClass text-center mx-auto"> Choisissez en un ci-dessous. </h3>

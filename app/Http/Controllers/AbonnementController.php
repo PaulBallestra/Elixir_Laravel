@@ -10,7 +10,7 @@ class AbonnementController extends Controller
 {
     public function abonnement()
     {
-        return view('auth.abonnements');
+        return view('auth.abonnements', ['subscribed' => false]);
     }
 
     public function monthlyAbonnement(Request $request)
@@ -51,12 +51,12 @@ class AbonnementController extends Controller
         } catch (IncompletePayment $exception) {
 
             return redirect()->route('cashier.payment', [
-                $exception->payment->id, 'redirect' => route('abonnement')
+                $exception->payment->id, 'redirect' => route('abonnement', ['subscribed' => true])
             ]);
 
         }
 
-        return redirect('/abonnement');
+        return redirect('/abonnement')->with('subscribed', true);
     }
 
     public function storeYearly(Request $request)
@@ -81,12 +81,12 @@ class AbonnementController extends Controller
         } catch (IncompletePayment $exception) {
 
             return redirect()->route('cashier.payment', [
-                $exception->payment->id, 'redirect' => route('abonnement')
+                $exception->payment->id, 'redirect' => route('abonnement', ['subscribed' => true])
             ]);
 
         }
 
-        return redirect('/abonnement');
+        return redirect('/abonnement')->with('subscribed', true);
     }
 
 }

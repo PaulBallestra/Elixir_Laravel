@@ -18,7 +18,7 @@ class ProfileFormRequest extends FormRequest
         return [
             'family_name' => 'required|string|max:255',
             'given_name' => 'required|string|max:255',
-            'email_address' => 'required|email|unique:users',
+            //'email_address' => 'required|email|unique:users',
             'password' => 'nullable',
             'address' => 'nullable|string|max:255',
             'town' => 'nullable|string|max:255',
