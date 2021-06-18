@@ -116,7 +116,13 @@ class AdminController extends Controller
     /* ACTUALITES */
     public function adminActualites()
     {
-        $actualites = DB::table('users')->get(); //get all users
+        $actualites = DB::table('actualites')->get(); //get all actus
         return view('auth.admin-actualites', ['actualites' => $actualites, 'deleted' => false]);
+    }
+
+    public function adminCurrentActualite($id)
+    {
+        $actualite = DB::table('actualites')->where('id', $id)->first();
+        return view('auth.admin-current-actualite', ['actualite' => $actualite, 'updated' => false, 'customError' => false]);
     }
 }

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Elixir - Admin : Actualité 1</title>
+    <title>Elixir - Admin : Actualité {{ $actualite->id }}</title>
 
     <!-- INTEGRATION TAILWIND -->
     <meta charset="UTF-8"/>
@@ -24,82 +24,70 @@
     <!-- TITLE DE LA PAGE -->
     <div class="grid grid-cols-6 gap-4 mb-4">
         <div class="col-start-2 col-span-4">
-            <h1 class="titleCustomClass mt-4 text-center"> ACTUALITÉ id </h1>
+            <h1 class="titleCustomClass mt-4 text-center"> ACTUALITÉ {{ $actualite->id }} </h1>
         </div>
     </div>
 
-<!-- INFOS PERSONNELLES -->
-    <!-- INFOS EMAIL PASSWORD -->
+    <!-- INFOS ACTU -->
     <div class="mb-5 sm:mt-0">
         <div class="md:grid md:grid-cols-4 md:gap-6">
             <div class="mt-5 md:mt-0 md:col-start-2 md:col-end-4">
-                <form action="/admin/users/{{ $user->id }}" method="POST">
+                <form action="/admin/actualites/{{ $actualite->id }}" method="POST">
                     @csrf
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <div class="grid grid-cols-6 gap-6">
-                                <div class="col-span-6 sm:col-span-3">
-                                    <label for="family_name"
+                                <div class="col-span-6 sm:col-span-6">
+                                    <label for="name"
                                            class="block text-sm font-medium text-gray-700">Nom</label>
-                                    <input type="text" name="family_name" id="family_name" placeholder="Kramer"
-                                           autocomplete="family_name" value=""
-                                           class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                </div>
-
-                                <div class="col-span-6 sm:col-span-3">
-                                    <label for="given_name"
-                                           class="block text-sm font-medium text-gray-700">Prénom</label>
-                                    <input type="text" name="given_name" id="given_name" placeholder="John"
-                                           autocomplete="given_name" value=""
+                                    <input type="text" name="name" id="name"
+                                           value="{{ $actualite->name }}"
+                                           placeholder="NOUVELLE CORDE 10-46"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-6">
-                                    <label for="email_address"
-                                           class="block text-sm font-medium text-gray-700">Email</label>
-                                    <input type="text" name="email_address" id="email_address"
-                                           value=""
-                                           placeholder="john.kramer@gmail.com" autocomplete="email"
+                                    <label for="short_description"
+                                           class="block text-sm font-medium text-gray-700">Short Description</label>
+                                    <input type="text" name="short_description" id="short_description" value="{{ $actualite->short_description }}"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
-                                <div class="col-span-6 sm:col-span-6">
-                                    <label for="password"
-                                           class="block text-sm font-medium text-gray-700">Password</label>
-                                    <input type="password" name="password" id="password"
-                                           placeholder="************" autocomplete="password"
-                                           class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                </div>
-
-                                <!-- ADRESSE -->
                                 <div class="col-span-6">
-                                    <label for="address" class="block text-sm font-medium text-gray-700">Adresse</label>
-                                    <input type="text" name="address" id="address" autocomplete="street-address"
-                                           placeholder="666 Acacia Avenue" value=""
+                                    <label for="description" class="block text-sm font-medium text-gray-700">Description
+                                        Complète</label>
+                                    <input type="text" name="description" id="description" value="{{ $actualite->description }}"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
-                                <div class="col-span-6 sm:col-span-3">
-                                    <label for="town"
-                                           class="block text-sm font-medium text-gray-700">Ville</label>
-                                    <input type="text" name="town" id="town" placeholder="Paris"
-                                           value=""
-                                           autocomplete="town"
-                                           class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                <div class="col-span-6">
+                                    <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
+                                    <div class="py-0 bg-white px-2">
+                                        <div class="max-w-md mx-auto rounded-lg overflow-hidden md:max-w-xl">
+                                            <div class="md:flex">
+                                                <div class="w-full p-3">
+                                                    <div
+                                                        class="relative border-dotted h-48 rounded-lg border-dashed border-2 border-blue-700 bg-gray-100 flex justify-center items-center">
+                                                        <div class="absolute">
+                                                            <div class="flex flex-col items-center"><i
+                                                                    class="fa fa-folder-open fa-4x text-blue-700"></i>
+                                                                <span class="block text-gray-400 font-normal">Cliquez pour importer votre image</span>
+                                                            </div>
+                                                        </div>
+                                                        <input type="file" class="h-full w-full opacity-0" name="image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="col-span-6 sm:col-span-3">
-                                    <label for="postal_code"
-                                           class="block text-sm font-medium text-gray-700">Code postal</label>
-                                    <input type="text" name="postal_code" id="postal_code" placeholder="75010"
-                                           autocomplete="postal_code" value=""
-                                           class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                </div>
 
                                 <label class="inline-flex items-center mt-3" for="is_admin">
-                                    <input type="checkbox" id="is_admin" name="is_admin" class="form-checkbox h-5 w-5 text-gray-600"
-                                           @if($user->is_admin) checked @endif><span
-                                        class="ml-2 text-gray-700">isAdmin</span>
+                                    <input type="checkbox" id="is_admin" name="is_admin"
+                                           class="form-checkbox h-5 w-5 text-gray-600"
+                                           @if($actualite->is_visible) checked @endif><span
+                                        class="ml-2 text-gray-700">isVisible</span>
                                 </label>
 
                             </div>

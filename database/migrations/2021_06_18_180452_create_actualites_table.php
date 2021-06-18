@@ -20,6 +20,7 @@ class CreateActualitesTable extends Migration
             $table->text('short_description');
             $table->longText('description');
             $table->string('image');
+            $table->boolean('is_visible');
         });
     }
 

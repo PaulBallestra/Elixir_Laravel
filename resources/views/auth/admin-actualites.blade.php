@@ -33,11 +33,10 @@
     <table class="table-fixed mx-auto">
         <thead>
         <tr>
-            <th class="w-1/5"> IDs </th>
-            <th class="w-1/5">Users</th>
-            <th class="w-1/5">Abonnements</th>
-            <th class="w-1/5">isAdmin</th>
-            <th class="w-1/5">Actions</th>
+            <th class="w-1/4"> IDs </th>
+            <th class="w-1/4"> Nom </th>
+            <th class="w-1/4"> Date </th>
+            <th class="w-1/4s">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -45,21 +44,20 @@
         @foreach($actualites as $actualite)
 
             <tr style="border-bottom: 1px solid black;">
-                <td>{{$actualite->id }}</td>
-                <td>{{ $actualite->family_name }} {{ $actualite->given_name }} - {{ $actualite->email_address }}</td>
-                <td> Aucun </td>
-                <td>{{ $actualite->is_admin }}</td>
+                <td>{{ $actualite->id }}</td>
+                <td>{{ $actualite->name }}</td>
+                <td>{{ $actualite->created_at }}</td>
                 <td>
 
                     <div class="grid grid-cols-2">
 
                         <div class="text-center">
-                            <a href="/admin/users/{{ $actualite->id }}"
+                            <a href="/admin/actualites/{{ $actualite->id }}"
                                class="btnCustom inline-block bg-yellow-500 text-black px-4 py-2 my-auto rounded hover:bg-yellow-700 hover:text-white hover:no-underline"> Modifier </a>
                         </div>
 
                         <div class="text-center">
-                            <a href="/admin/users/{{ $actualite->id }}/delete"
+                            <a href="/admin/actualites/{{ $actualite->id }}/delete"
                                class="btnCustom inline-block bg-red-500 text-black px-4 py-2 rounded hover:bg-red-700 hover:text-white hover:no-underline"> Supprimer </a>
                         </div>
 
