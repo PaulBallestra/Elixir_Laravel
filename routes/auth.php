@@ -71,7 +71,7 @@ Route::get('/admin/users', [AdminController::class, 'adminUsers'])
 Route::get('/admin/users/{id}', [AdminController::class, 'adminCurrentUser'])->middleware('auth');
 Route::post('/admin/users/{id}', [AdminController::class, 'adminUpdateCurrentUser'])->middleware('auth');
 
-Route::delete('/admin/users/{id}', [AdminController::class, 'adminDeleteCurrentUser'])->middleware('auth');
+Route::get('/admin/users/{id}/delete', [AdminController::class, 'adminDeleteCurrentUser'])->middleware('auth');
 
 //LOGIN
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])

@@ -30,6 +30,17 @@
         </div>
     </div>
 
+    <!-- VALIDATIONS -->
+    @if ($deleted)
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mx-5 mb-3"
+             role="alert">
+            <ul>
+                <li> Bien supprimé </li>
+            </ul>
+        </div>
+    @endif
+
+
 
     <table class="table-fixed mx-auto">
         <thead>
@@ -60,7 +71,7 @@
                         </div>
 
                         <div class="text-center">
-                            <a href="/admin/users/{{ $user->id }}"
+                            <a href="/admin/users/{{ $user->id }}/delete"
                                class="btnCustom inline-block bg-red-500 text-black px-4 py-2 rounded hover:bg-red-700 hover:text-white hover:no-underline"> Supprimer </a>
                         </div>
 

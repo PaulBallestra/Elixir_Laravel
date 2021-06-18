@@ -55,7 +55,7 @@
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mx-5 mb-3"
              role="alert">
             <ul>
-                <li> L'user a été mis à jour !</li>
+                <li> L'user a été mis à jour ! </li>
             </ul>
         </div>
     @endif

@@ -15,9 +15,7 @@ class AdminController extends Controller
     // ADMIN
     public function admin()
     {
-
         $nbUsers = DB::table('users')->count();
-
         return view('auth.admin', ['nbUsers' => $nbUsers]);
     }
 
@@ -25,8 +23,7 @@ class AdminController extends Controller
     public function adminUsers()
     {
         $users = DB::table('users')->get(); //get all users
-
-        return view('auth.admin-users', ['users' => $users]);
+        return view('auth.admin-users', ['users' => $users, 'deleted' => false]);
     }
 
     //UPDATE PAGE USER
@@ -36,7 +33,7 @@ class AdminController extends Controller
         return view('auth.admin-current-user', ['user' => $user, 'updated' => false, 'customError' => false]);
     }
 
-    //UPDATE POST USER
+    //UPDATE FUNCTION USER
     public function adminUpdateCurrentUser(ProfileFormRequest $request, $id)
     {
 
@@ -107,7 +104,10 @@ class AdminController extends Controller
     //DELETE USER
     public function adminDeleteCurrentUser($id)
     {
-        $user = DB::table('users')->where('id', $id)->first()->delete();
-        $this->adminUsers();
+        DB::table('users')->where('id', $id)->delete();
+
+        $users = DB::table('users')->get();
+
+        return redirect('/admin/users')->with(['users' => $users, 'deleted' => true]);
     }
 }
