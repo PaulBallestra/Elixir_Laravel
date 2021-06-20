@@ -68,6 +68,11 @@ Route::get('/admin/users', [AdminController::class, 'adminUsers'])
     ->middleware('auth')
     ->name('admin.users');
 
+//Admin Create actualité
+Route::get('admin/users/create', [AdminController::class, 'adminNewUser'])->middleware('auth');
+Route::post('admin/users/create', [AdminController::class, 'adminCreateNewUser'])->middleware('auth');
+
+
 //Admin Current user
 Route::get('/admin/users/{id}', [AdminController::class, 'adminCurrentUser'])->middleware('auth');
 Route::post('/admin/users/{id}', [AdminController::class, 'adminUpdateCurrentUser'])->middleware('auth');
@@ -79,7 +84,7 @@ Route::get('/admin/actualites', [AdminController::class, 'adminActualites'])->mi
 
 //Admin Create actualité
 Route::get('admin/actualites/create', [AdminController::class, 'adminNewActualite'])->middleware('auth');
-Route::post('admin/actualites/create', [AdminController::class, 'adminCreateNewActualite']);
+Route::post('admin/actualites/create', [AdminController::class, 'adminCreateNewActualite'])->middleware('auth');
 
 //Admin Current actualité
 Route::get('/admin/actualites/{id}', [AdminController::class, 'adminCurrentActualite'])->middleware('auth');

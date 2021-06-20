@@ -30,7 +30,13 @@
         </div>
     </div>
 
-    <!-- VALIDATIONS -->
+    <!-- BTN CREER NOUVEL USER -->
+    <div class="text-center">
+        <a href="/admin/users/create"
+           class="btnCustom inline-block bg-indigo-500 text-black px-4 py-2 my-2 my-auto rounded hover:bg-indigo-700 hover:text-white hover:no-underline"> Créer </a>
+    </div>
+
+    <!-- DELETE -->
     @if ($deleted)
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mx-5 mb-3"
              role="alert">
@@ -38,11 +44,30 @@
                 <li> User supprimé avec succès ! </li>
             </ul>
         </div>
+
+    <!-- CREATE -->
+    @elseif ($created)
+
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mx-5 mb-3" role="alert">
+            <ul>
+                <li> User créé avec succès ! </li>
+            </ul>
+        </div>
+
+    @endif
+
+    @if ($errors->any())
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mx-5 mb-5" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
     @endif
 
 
-
-    <table class="table-fixed mx-auto">
+    <table class="table-fixed mx-auto mt-3">
         <thead>
         <tr>
             <th class="w-1/5"> IDs </th>

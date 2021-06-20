@@ -28,7 +28,70 @@ class AdminController extends Controller
     public function adminUsers()
     {
         $users = DB::table('users')->get(); //get all users
-        return view('auth.admin-users', ['users' => $users, 'deleted' => false]);
+        return view('auth.admin-users', ['users' => $users, 'deleted' => false, 'created' => false]);
+    }
+
+    //PAGE create new user
+    public function adminNewUser()
+    {
+        return view('auth.admin-create-user', ['customError' => false, 'updated' => false]);
+    }
+
+    //FUNCTION create new user
+    public function adminCreateNewUser(ProfileFormRequest $request)
+    {
+        $create = [];
+
+        //Check de l'email a la main
+        if(User::where('email_address', '=', $request->email_address)->first()){
+
+            //REDIRECT EXISTE DEJA
+            return view('auth.admin-create-user', ['customError' => 'Cette adresse email est déjà utilisée !']);
+
+        }else{
+            $create += [
+                'email_address' => $request->email_address
+            ];
+        }
+
+        //VERIFIEZ QU'IL NE REMPLI PAS QU'UN SEUL CHAMPS DE L'ADDRESSE
+        if(is_null($request->address) && is_null($request->town) && is_null($request->postal_code)){
+            $create += [
+                'family_name' => $request->family_name,
+                'given_name' => $request->given_name,
+            ];
+        }else if(is_null($request->address) || is_null($request->town) || is_null($request->postal_code)){
+            return view('auth.admin-create-user', ['customError' => 'L\'adresse est incomplète !']);
+        }else{
+            $create += [
+                'family_name' => $request->family_name,
+                'given_name' => $request->given_name,
+                'address' => $request->address,
+                'town' => $request->town,
+                'postal_code' => $request->postal_code
+            ];
+        }
+
+        //Integration du password si il l'a changé (il ne laisse pas vide le champs password)
+        if(!is_null($request->password)){
+            $create += ['password' => Hash::make($request->password)];
+        }
+
+        //Update de is_admin
+        if(!is_null($request->is_admin))
+            $create += ['is_admin' => 1];
+        else
+            $create += ['is_admin' => 0];
+
+        // UPDATE DE L'USER
+        DB::table('users')->insert($create);
+
+        //On réaffiche la page avec les infos modifiées et un message
+        $users = DB::table('users')->get();
+
+        return view('auth.admin-users', ['users' => $users, 'created' => true, 'deleted' => false]);
+
+
     }
 
     //UPDATE PAGE USER
@@ -113,7 +176,7 @@ class AdminController extends Controller
 
         $users = DB::table('users')->get();
 
-        return redirect('/admin/users')->with(['users' => $users, 'deleted' => true]);
+        return redirect('/admin/users')->with(['users' => $users, 'deleted' => true, 'created' => false]);
     }
 
 
@@ -174,7 +237,7 @@ class AdminController extends Controller
         DB::table('actualites')->where('id', $id)->delete();
 
         $actualites = DB::table('actualites')->get();
-        return redirect('/admin/actualites')->with(['actualites' => $actualites, 'deleted' => true]);
+        return redirect('/admin/actualites')->with(['actualites' => $actualites, 'deleted' => true, 'created' => false]);
     }
 
 }
