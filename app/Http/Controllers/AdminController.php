@@ -168,4 +168,13 @@ class AdminController extends Controller
         return view('auth.admin-actualites', ['actualites' => $actualites, 'deleted' => false, 'created' => true]);
     }
 
+
+    public function adminDeleteCurrentActualite($id)
+    {
+        DB::table('actualites')->where('id', $id)->delete();
+
+        $actualites = DB::table('actualites')->get();
+        return redirect('/admin/actualites')->with(['actualites' => $actualites, 'deleted' => true]);
+    }
+
 }

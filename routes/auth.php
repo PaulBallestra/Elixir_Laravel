@@ -84,6 +84,7 @@ Route::post('admin/actualites/create', [AdminController::class, 'adminCreateNewA
 //Admin Current actualité
 Route::get('/admin/actualites/{id}', [AdminController::class, 'adminCurrentActualite'])->middleware('auth');
 Route::post('/admin/actualites/{id}', [AdminController::class, 'adminUpdateCurrentActualite'])->middleware('auth');
+Route::get('/admin/actualites/{id}/delete', [AdminController::class, 'adminDeleteCurrentActualite'])->middleware('auth');
 
 //LOGIN
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])

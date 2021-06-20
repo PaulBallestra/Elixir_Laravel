@@ -35,6 +35,16 @@
            class="btnCustom inline-block bg-indigo-500 text-black px-4 py-2 my-2 my-auto rounded hover:bg-indigo-700 hover:text-white hover:no-underline"> Créer </a>
     </div>
 
+    <!-- VALIDATIONS -->
+    @if ($deleted)
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mx-5 mb-3"
+             role="alert">
+            <ul>
+                <li> Actualité supprimée avec succès ! </li>
+            </ul>
+        </div>
+    @endif
+
     <!-- LISTES DES ACTUS -->
     <table class="table-fixed mx-auto mt-3">
         <thead>
