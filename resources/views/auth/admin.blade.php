@@ -50,7 +50,7 @@
         <a href="admin/abonnements">
             <div class="py-4 px-8 bg-white shadow-lg rounded-lg my-3">
                 <div>
-                    <h2 class="text-gray-800 text-3xl font-semibold">2 Abonnements</h2>
+                    <h2 class="text-gray-800 text-3xl font-semibold"> 2 Abonnements</h2>
                     <p class="mt-2 text-gray-600">Gérez les abonnements de vos utilisateurs</p>
                 </div>
                 <div class="flex justify-end mt-4">
@@ -63,7 +63,7 @@
         <a href="admin/actualites">
             <div class="py-4 px-8 bg-white shadow-lg rounded-lg my-3">
                 <div>
-                    <h2 class="text-gray-800 text-3xl font-semibold">5 Actualités</h2>
+                    <h2 class="text-gray-800 text-3xl font-semibold"> {{ $nbActualites }} Actualités</h2>
                     <p class="mt-2 text-gray-600">Créez, modifiez ou supprimez vos actualités</p>
                 </div>
                 <div class="flex justify-end mt-4">

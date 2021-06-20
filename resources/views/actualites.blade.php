@@ -9,7 +9,7 @@
     <!-- INTEGRATION TAILWIND -->
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet"/>
 
     @livewireStyles
 
@@ -34,20 +34,17 @@
 
     @foreach($actualites as $actualite)
 
-            <!-- ACTU GAUCHE -->
+        <!-- ACTU GAUCHE -->
             <div class="col-start-1 sm:col-start-1 col-end-3">
-
-                {{ $actualite->id }}
-                <livewire:actualite/>
+                <livewire:actualite :actualite="$actualite" />
             </div>
 
             <!-- ACTU DROITE -->
             <div class="col-start-1 sm:col-start-3 col-end-5">
-                {{$actualite->id}}
                 <livewire:actualite/>
             </div>
 
-    @endforeach
+        @endforeach
 
     </div>
 </div>

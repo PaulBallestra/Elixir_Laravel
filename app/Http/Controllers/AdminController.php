@@ -16,7 +16,10 @@ class AdminController extends Controller
     public function admin()
     {
         $nbUsers = DB::table('users')->count();
-        return view('auth.admin', ['nbUsers' => $nbUsers]);
+        $nbActualites = DB::table('actualites')->count();
+
+
+        return view('auth.admin', ['nbUsers' => $nbUsers, 'nbActualites' => $nbActualites]);
     }
 
     /* USERS */
