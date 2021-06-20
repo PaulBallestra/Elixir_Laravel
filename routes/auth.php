@@ -75,11 +75,11 @@ Route::get('/admin/users/{id}/delete', [AdminController::class, 'adminDeleteCurr
 
 //ACTU ADMIN
 //Admin All Actualités
-Route::get('/admin/actualites', [AdminController::class, 'adminActualites'])->middleware('auth');
+Route::get('/admin/actualites', [AdminController::class, 'adminActualites'])->middleware('auth')->name('admin.actualites');
 
 //Admin Create actualité
 Route::get('admin/actualites/create', [AdminController::class, 'adminNewActualite'])->middleware('auth');
-Route::post('admin/actualites/create', [AdminController::class, 'adminCreateActualite'])->middleware('auth');
+Route::post('admin/actualites/create', [AdminController::class, 'adminCreateNewActualite']);
 
 //Admin Current actualité
 Route::get('/admin/actualites/{id}', [AdminController::class, 'adminCurrentActualite'])->middleware('auth');

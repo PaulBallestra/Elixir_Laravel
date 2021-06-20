@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ProfileFormRequest;
+use App\Http\Requests\ActualiteFormRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
@@ -117,6 +118,7 @@ class AdminController extends Controller
 
 
     /* ACTUALITES */
+    //LIST ACTUALITES
     public function adminActualites()
     {
         $actualites = DB::table('actualites')->get(); //get all actus
@@ -136,13 +138,14 @@ class AdminController extends Controller
         dd($request);
     }
 
-    //View create current actualite
+    //View create new actualite
     public function adminNewActualite()
     {
         return view('auth.admin-create-actualite');
     }
 
-    public function adminCreateActualite(Request $request)
+    //Function create new actualite
+    public function adminCreateNewActualite(ActualiteFormRequest $request)
     {
 
         //Validations
