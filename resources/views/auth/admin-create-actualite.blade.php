@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Elixir - Admin : Actualité {{ $actualite->id }}</title>
+    <title>Elixir - Admin : Création Actualité</title>
 
     <!-- INTEGRATION TAILWIND -->
     <meta charset="UTF-8"/>
@@ -24,7 +24,7 @@
     <!-- TITLE DE LA PAGE -->
     <div class="grid grid-cols-6 gap-4 mb-4">
         <div class="col-start-2 col-span-4">
-            <h1 class="titleCustomClass mt-4 text-center"> ACTUALITÉ {{ $actualite->id }} </h1>
+            <h1 class="titleCustomClass mt-4 text-center"> NOUVELLE ACTUALITÉ </h1>
         </div>
     </div>
 
@@ -32,7 +32,7 @@
     <div class="mb-5 sm:mt-0">
         <div class="md:grid md:grid-cols-4 md:gap-6">
             <div class="mt-5 md:mt-0 md:col-start-2 md:col-end-4">
-                <form action="/admin/actualites/{{ $actualite->id }}" method="POST">
+                <form method="POST">
                     @csrf
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
@@ -41,7 +41,7 @@
                                     <label for="name"
                                            class="block text-sm font-medium text-gray-700">Nom</label>
                                     <input type="text" name="name" id="name"
-                                           value="{{ $actualite->name }}"
+                                           value=""
                                            placeholder="NOUVELLE CORDE 10-46"
                                            class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
@@ -50,8 +50,8 @@
                                     <label for="short_description"
                                            class="block text-sm font-medium text-gray-700">Short Description</label>
                                     <textarea type="text" name="short_description" id="short_description"
-                                           class="resize-y border rounded-md mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                         {{ $actualite->short_description }}
+                                              class="resize-y border rounded-md mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+
                                     </textarea>
                                 </div>
 
@@ -60,7 +60,6 @@
                                         Complète</label>
                                     <textarea type="text" name="description" id="description"
                                               class="resize-y border rounded-md mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                         {{ $actualite->description }}
                                     </textarea>
                                 </div>
 
@@ -89,8 +88,7 @@
 
                                 <label class="inline-flex items-center mt-3" for="is_visible">
                                     <input type="checkbox" id="is_visible" name="is_visible"
-                                           class="form-checkbox h-5 w-5 text-gray-600"
-                                           @if($actualite->is_visible) checked @endif><span
+                                           class="form-checkbox h-5 w-5 text-gray-600"><span
                                         class="ml-2 text-gray-700">isVisible</span>
                                 </label>
 

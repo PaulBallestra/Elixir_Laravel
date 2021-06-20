@@ -123,9 +123,46 @@ class AdminController extends Controller
         return view('auth.admin-actualites', ['actualites' => $actualites, 'deleted' => false]);
     }
 
+    //View update current actualite
     public function adminCurrentActualite($id)
     {
         $actualite = DB::table('actualites')->where('id', $id)->first();
         return view('auth.admin-current-actualite', ['actualite' => $actualite, 'updated' => false, 'customError' => false]);
     }
+
+    //Function update current actualité
+    public function adminUpdateCurrentActualite(Request $request)
+    {
+        dd($request);
+    }
+
+    //View create current actualite
+    public function adminNewActualite()
+    {
+        return view('auth.admin-create-actualite');
+    }
+
+    public function adminCreateActualite(Request $request)
+    {
+
+        //Validations
+
+        $createValues = [
+            'name' => $request->name,
+            'short_description' => $request->short_description,
+            'description' => $request->description,
+            'image' => 'link cloudinary'
+        ];
+
+        if($request->is_visible)
+            $createValues += ['is_visible' => true];
+        else
+            $createValues += ['is_visible' => false];
+
+        DB::table('actualites')->insert($createValues);
+
+        $actualites = DB::table('actualites')->get(); //get all actus
+        return view('auth.admin-actualites', ['actualites' => $actualites, 'deleted' => false, 'created' => true]);
+    }
+
 }

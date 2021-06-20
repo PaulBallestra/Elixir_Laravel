@@ -77,8 +77,13 @@ Route::get('/admin/users/{id}/delete', [AdminController::class, 'adminDeleteCurr
 //Admin All Actualités
 Route::get('/admin/actualites', [AdminController::class, 'adminActualites'])->middleware('auth');
 
+//Admin Create actualité
+Route::get('admin/actualites/create', [AdminController::class, 'adminNewActualite'])->middleware('auth');
+Route::post('admin/actualites/create', [AdminController::class, 'adminCreateActualite'])->middleware('auth');
+
 //Admin Current actualité
 Route::get('/admin/actualites/{id}', [AdminController::class, 'adminCurrentActualite'])->middleware('auth');
+Route::post('/admin/actualites/{id}', [AdminController::class, 'adminUpdateCurrentActualite'])->middleware('auth');
 
 //LOGIN
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])

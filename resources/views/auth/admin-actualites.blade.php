@@ -29,8 +29,14 @@
         </div>
     </div>
 
+    <!-- BTN CREER NOUVELLE ACTU -->
+    <div class="text-center">
+        <a href="/admin/actualites/create"
+           class="btnCustom inline-block bg-indigo-500 text-black px-4 py-2 my-2 my-auto rounded hover:bg-indigo-700 hover:text-white hover:no-underline"> Créer </a>
+    </div>
 
-    <table class="table-fixed mx-auto">
+    <!-- LISTES DES ACTUS -->
+    <table class="table-fixed mx-auto mt-3">
         <thead>
         <tr>
             <th class="w-1/4"> IDs </th>
