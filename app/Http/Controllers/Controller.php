@@ -21,6 +21,9 @@ class Controller extends BaseController
     public function actualites()
     {
         $actualites = DB::table('actualites')->get();
+
+        //dd($actualites);
+
         return view('actualites', ['actualites' => $actualites]);
     }
 

@@ -2,19 +2,14 @@
 
     <div class="divActualiteInfos">
 
-        <p class="actualiteDate"> 16/05/2021 </p>
-        <h3 class="actualiteTitle"> NOUVELLES CORDES 10-46 </h3>
+        <p class="actualiteDate"> {{ $date }} </p>
+        <h3 class="actualiteTitle"> {{ $name }} </h3>
         <div class="grid grid-cols-6 gap-4">
-            <p class="actualiteContent col-start-1 col-end-6"> Les nouvelles cordes Elixir 10 - 46 pour
-                guitare électrique sont arrivées !
-                Le revêtement Elixir est toujours présent
-                et vos cordes n'auront jamais tenu
-                aussi longtemps.
-            </p>
+            <p class="actualiteContent col-start-1 col-end-6"> {{ $shortDescription }} </p>
         </div>
 
         <div class="flex justify-end">
-            <a href="actualites/1"><p class="actualiteBtnSuite justify-content-end"> Lire la suite >> </p></a>
+            <a href="actualites/{{ $id_actualite }}"><p class="actualiteBtnSuite justify-content-end"> Lire la suite >> </p></a>
         </div>
 
     </div>

@@ -41,7 +41,7 @@
 
             <!-- ACTU DROITE -->
             <div class="col-start-1 sm:col-start-3 col-end-5">
-                <livewire:actualite/>
+                <livewire:actualite :actualite="$actualite"/>
             </div>
 
         @endforeach
