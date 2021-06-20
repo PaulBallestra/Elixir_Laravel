@@ -17,22 +17,6 @@ class Controller extends BaseController
         return view('welcome');
     }
 
-    //Toutes les actualites
-    public function actualites()
-    {
-        $actualites = DB::table('actualites')->get();
-
-        //dd($actualites);
-
-        return view('actualites', ['actualites' => $actualites]);
-    }
-
-    //Une seule actualite
-    public function actualite()
-    {
-        return view('actualite');
-    }
-
     public function service()
     {
         return view('service');

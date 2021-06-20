@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AbonnementController;
+use App\Http\Controllers\ActualiteController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -17,10 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\Controller::class, 'accueil'])->name('accueil');
 
 //ACTUALITES
-Route::get('/actualites', [App\Http\Controllers\Controller::class, 'actualites'])->name('actualites');
+Route::get('/actualites', [ActualiteController::class, 'actualites'])->name('actualites');
 
 //CURRENT ACTUALITE
-Route::get('/actualites/1', [App\Http\Controllers\Controller::class, 'actualite']);
+Route::get('/actualites/{id}', [ActualiteController::class, 'actualite']);
 
 //SERVICES
 Route::get('/service', [App\Http\Controllers\Controller::class, 'service'])->name('service');
