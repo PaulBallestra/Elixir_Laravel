@@ -36,7 +36,7 @@ class AbonnementController extends Controller
         $request->validate([
             'titulaire' => 'required',
             'payment_method' => 'required',
-            'plan' => 'required|exists:plans,id'
+            'plan' => 'required'
         ]);
 
         //Récup du plan
