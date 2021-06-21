@@ -49,10 +49,11 @@
     <table class="table-fixed mx-auto mt-3">
         <thead>
         <tr>
-            <th class="w-1/4"> IDs </th>
-            <th class="w-1/4"> Nom </th>
-            <th class="w-1/4"> Date </th>
-            <th class="w-1/4s">Actions</th>
+            <th class="w-1/5"> IDs </th>
+            <th class="w-1/5"> Nom </th>
+            <th class="w-1/5"> Date </th>
+            <th class="w-1/5"> IsVisible </th>
+            <th class="w-1/5">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -63,6 +64,7 @@
                 <td>{{ $actualite->id }}</td>
                 <td>{{ $actualite->name }}</td>
                 <td>{{ $actualite->created_at }}</td>
+                <td>{{ $actualite->is_visible }}</td>
                 <td>
 
                     <div class="grid grid-cols-2">
