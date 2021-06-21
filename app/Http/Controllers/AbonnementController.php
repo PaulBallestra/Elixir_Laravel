@@ -55,7 +55,8 @@ class AbonnementController extends Controller
 
         }
 
-        return view('auth.abonnements', ['subscribed' => true]);
+        //return view('auth.abonnements', ['subscribed' => true]);
+        return redirect(route('abonnement'))->with('success', 'Abonnement subscribed !');
     }
 
     public function storeYearly(Request $request)
@@ -85,7 +86,8 @@ class AbonnementController extends Controller
 
         }
 
-        return view('auth.abonnements', ['subscribed' => true]);
+        return redirect(route('abonnement'))->with('success', 'Abonnement subscribed !');
+        //return view('auth.abonnements', ['subscribed' => true]);
     }
 
 }
