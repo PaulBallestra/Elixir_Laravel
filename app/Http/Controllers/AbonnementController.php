@@ -92,7 +92,6 @@ class AbonnementController extends Controller
         }
 
         return redirect(route('abonnement'))->with('success', 'Abonnement subscribed !');
-        //return view('auth.abonnements', ['subscribed' => true]);
     }
 
 }

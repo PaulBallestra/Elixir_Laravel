@@ -100,6 +100,14 @@ class AdminController extends Controller
     //UPDATE PAGE USER
     public function adminCurrentUser($id)
     {
+        $checkId = DB::table('users')->where('id', $id)->first();
+
+        if(is_null($checkId)){
+            $users = DB::table('users')->get();
+            return redirect(route('admin.users'))->with('users', $users);
+        }
+
+
         $user = DB::table('users')->where('id', $id)->first();
         return view('auth.admin.admin-current-user', ['user' => $user, 'message' => null, 'messageGreen' => null]);
     }
@@ -107,6 +115,12 @@ class AdminController extends Controller
     //UPDATE FUNCTION USER
     public function adminUpdateCurrentUser(ProfileFormRequest $request, $id)
     {
+        $checkId = DB::table('users')->where('id', $id)->first();
+
+        if(is_null($checkId)){
+            $users = DB::table('users')->get();
+            return redirect(route('admin.users'))->with('users', $users);
+        }
 
         $user = DB::table('users')->where('id', $id)->first();
 
@@ -175,6 +189,13 @@ class AdminController extends Controller
     //DELETE USER
     public function adminDeleteCurrentUser($id)
     {
+        $checkId = DB::table('users')->where('id', $id)->first();
+
+        if(is_null($checkId)){
+            $users = DB::table('users')->get();
+            return redirect(route('admin.users'))->with('users', $users);
+        }
+
         DB::table('users')->where('id', $id)->delete();
 
         $users = DB::table('users')->get();
@@ -195,6 +216,13 @@ class AdminController extends Controller
     //View update current actualite
     public function adminCurrentActualite($id)
     {
+        $checkId = DB::table('actualites')->where('id', $id)->first();
+
+        if(is_null($checkId)){
+            $actualites = DB::table('actualites')->get();
+            return redirect(route('admin.actualites'))->with('actualites', $actualites);
+        }
+
         $actualite = DB::table('actualites')->where('id', $id)->first();
         return view('auth.admin.admin-current-actualite', ['actualite' => $actualite, 'message' => null]);
     }
@@ -202,6 +230,13 @@ class AdminController extends Controller
     //Function update current actualité
     public function adminUpdateCurrentActualite(ActualiteFormRequest $request, $id)
     {
+        $checkId = DB::table('actualites')->where('id', $id)->first();
+
+        if(is_null($checkId)){
+            $actualites = DB::table('actualites')->get();
+            return redirect(route('admin.actualites'))->with('actualites', $actualites);
+        }
+
         $actualite = DB::table('actualites')->where('id', $id)->first();
 
         $updateValues = [
@@ -259,6 +294,13 @@ class AdminController extends Controller
 
     public function adminDeleteCurrentActualite($id)
     {
+        $checkId = DB::table('actualites')->where('id', $id)->first();
+
+        if(is_null($checkId)){
+            $actualites = DB::table('actualites')->get();
+            return redirect(route('admin.actualites'))->with('actualites', $actualites);
+        }
+
         DB::table('actualites')->where('id', $id)->delete();
 
         $actualites = DB::table('actualites')->get();
@@ -306,6 +348,13 @@ class AdminController extends Controller
     //VIEW PAGE CURRENT PLAN
     public function adminCurrentPlan($id)
     {
+        $checkId = DB::table('plans')->where('id', $id)->first();
+
+        if(is_null($checkId)){
+            $plans = DB::table('plans')->get();
+            return redirect(route('admin.plans'))->with('plans', $plans);
+        }
+
         $plan = DB::table('plans')->where('id', $id)->first();
         return view('auth.admin.admin-current-plan', ['plan' => $plan, 'message' => null]);
     }
@@ -313,6 +362,14 @@ class AdminController extends Controller
     //FUNCTION UPDATE CURRENT PLAN
     public function adminUpdateCurrentPlan(PlanFormRequest $request, $id)
     {
+        $checkId = DB::table('plans')->where('id', $id)->first();
+
+        if(is_null($checkId)){
+            $plans = DB::table('plans')->get();
+            return redirect(route('admin.plans'))->with('plans', $plans);
+        }
+
+
         $update = [
             'name' => $request->name,
             'price' => $request->price,
@@ -331,6 +388,14 @@ class AdminController extends Controller
     //FUNCTION DELETE CURRENT PLAN
     public function adminDeleteCurrentPlan($id)
     {
+        $checkId = DB::table('plans')->where('id', $id)->first();
+
+        if(is_null($checkId)){
+            $plans = DB::table('plans')->get();
+            return redirect(route('admin.plans'))->with('plans', $plans);
+        }
+
+
         $planToDelete = DB::table('plans')->where('id', $id)->first();
 
         /*
