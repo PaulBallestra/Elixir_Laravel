@@ -11,7 +11,7 @@ class ActualiteController extends Controller
     //Toutes les actualites
     public function actualites()
     {
-        $actualites = DB::table('actualites')->get();
+        $actualites = DB::table('actualites')->where('is_visible', '=', true)->get();
         return view('actualites', ['actualites' => $actualites]);
     }
 

@@ -89,7 +89,8 @@ class AdminController extends Controller
         //On réaffiche la page avec les infos modifiées et un message
         $users = DB::table('users')->get();
 
-        return view('auth.admin.admin-users', ['users' => $users, 'message' => 'Utilisateur créé avec succès !']);
+        //return view('auth.admin.admin-users', ['users' => $users, 'message' => 'Utilisateur créé avec succès !']);
+        return redirect('/admin/users', ['users' => $users, 'message' => 'Utilisateur créé avec succès !']);
     }
 
     //UPDATE PAGE USER
@@ -175,7 +176,6 @@ class AdminController extends Controller
         $users = DB::table('users')->get();
 
         return view('auth.admin.admin-users', ['users' => $users, 'message' => 'Utilisateur supprimé avec succès !']);
-
     }
 
 
