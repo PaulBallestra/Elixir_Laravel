@@ -44,7 +44,7 @@ class AbonnementController extends Controller
 
         try {
 
-            dd($request);
+            //dd($request);
 
             $subscription = $request->user()
                 ->newSubscription('default', $plan->stripe_id)

@@ -19,9 +19,9 @@ class AdminController extends Controller
     {
         $nbUsers = DB::table('users')->count();
         $nbActualites = DB::table('actualites')->count();
+        $nbPlans = DB::table('plans')->count();
 
-
-        return view('auth.admin.admin', ['nbUsers' => $nbUsers, 'nbActualites' => $nbActualites]);
+        return view('auth.admin.admin', ['nbUsers' => $nbUsers, 'nbActualites' => $nbActualites, 'nbPlans' => $nbPlans]);
     }
 
     /* USERS */
