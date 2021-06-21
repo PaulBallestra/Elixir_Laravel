@@ -90,7 +90,10 @@ class AdminController extends Controller
         $users = DB::table('users')->get();
 
         //return view('auth.admin.admin-users', ['users' => $users, 'message' => 'Utilisateur créé avec succès !']);
-        return redirect('/admin/users', ['users' => $users, 'message' => 'Utilisateur créé avec succès !']);
+        //return redirect('/admin/users', ['users' => $users, 'message' => 'Utilisateur créé avec succès !']);
+
+        return redirect(route('admin.users'))->with(['users' => $users])->with('success', 'Utilisateur créé avec succès !');
+
     }
 
     //UPDATE PAGE USER
@@ -175,7 +178,8 @@ class AdminController extends Controller
 
         $users = DB::table('users')->get();
 
-        return view('auth.admin.admin-users', ['users' => $users, 'message' => 'Utilisateur supprimé avec succès !']);
+        return redirect(route('admin.users'))->with(['users' => $users])->with('success', 'Utilisateur supprimé avec succès !');
+
     }
 
 
@@ -191,7 +195,7 @@ class AdminController extends Controller
     public function adminCurrentActualite($id)
     {
         $actualite = DB::table('actualites')->where('id', $id)->first();
-        return view('auth.admin.admin-current-actualite', ['actualite' => $actualite, 'updated' => false, 'customError' => false]);
+        return view('auth.admin.admin-current-actualite', ['actualite' => $actualite, 'message' => null]);
     }
 
     //Function update current actualité
@@ -214,13 +218,12 @@ class AdminController extends Controller
             $updateValues += ['is_visible' => false];
 
 
-
         DB::table('actualites')
             ->where(['id' => $actualite->id])
             ->update($updateValues);
 
-        $actualites = DB::table('actualites')->get();
-        return view('auth.admin.admin-actualites', ['actualites' => $actualites, 'message' => 'Actualité mise à jour !']);
+        $actualite = DB::table('actualites')->where('id', $actualite->id)->first();
+        return view('auth.admin.admin-current-actualite', ['actualite' => $actualite, 'message' => 'Actualité mise à jour !']);
     }
 
     //View create new actualite
@@ -249,7 +252,8 @@ class AdminController extends Controller
         DB::table('actualites')->insert($createValues);
 
         $actualites = DB::table('actualites')->get(); //get all actus
-        return view('auth.admin.admin-actualites', ['actualites' => $actualites, 'message' => 'Actualité créée avec succès !']);
+
+        return redirect(route('admin.actualites'))->with(['actualites' => $actualites])->with('success', 'Actualité créée avec succès !');
     }
 
 
@@ -258,7 +262,10 @@ class AdminController extends Controller
         DB::table('actualites')->where('id', $id)->delete();
 
         $actualites = DB::table('actualites')->get();
-        return view('auth.admin.admin-actualites', ['actualites' => $actualites, 'message' => 'Actualité supprimée avec succès !']);
+
+        //return view('auth.admin.admin-actualites', ['actualites' => $actualites, 'message' => 'Actualité supprimée avec succès !']);
+        return redirect(route('admin.actualites'))->with(['actualites' => $actualites])->with('success', 'Actualité supprimée avec succès !');
+
     }
 
 
