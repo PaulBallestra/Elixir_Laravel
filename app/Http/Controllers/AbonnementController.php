@@ -43,9 +43,14 @@ class AbonnementController extends Controller
         $plan = Plan::find($request->plan);
 
         try {
+
+            dd($request);
+
             $subscription = $request->user()
                 ->newSubscription('default', $plan->stripe_id)
                 ->create($request->payment_method);
+
+            //dd($subscription);
 
         } catch (IncompletePayment $exception) {
 

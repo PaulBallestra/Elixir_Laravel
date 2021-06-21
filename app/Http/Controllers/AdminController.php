@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProfileFormRequest;
 use App\Http\Requests\ActualiteFormRequest;
+use App\Http\Requests\PlanFormRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
@@ -201,7 +202,6 @@ class AdminController extends Controller
     //Function update current actualité
     public function adminUpdateCurrentActualite(ActualiteFormRequest $request, $id)
     {
-
         $actualite = DB::table('actualites')->where('id', $id)->first();
 
         $updateValues = [
@@ -276,6 +276,74 @@ class AdminController extends Controller
     {
         $plans = DB::table('plans')->get(); //get all plans
         return view('auth.admin.admin-plans', ['plans' => $plans, 'deleted' => false]);
+    }
+
+    //VIEW CREATE PLAN
+    public function adminNewPlan()
+    {
+        return view('auth.admin.admin-create-plan', ['message' => null]);
+    }
+
+    //FUNCTION CREATE PLAN
+    public function adminCreateNewPlan(PlanFormRequest $request)
+    {
+        $create = [
+            'name' => $request->name,
+            'price' => $request->price,
+            'stripe_id' => $request->stripe_id,
+        ];
+
+        //CHECK STRIPE ID
+
+        DB::table('plans')->insert($create);
+
+        $plans = DB::table('plans')->get();
+
+        return redirect(route('admin.plans'))->with(['plans' => $plans])->with('success', 'Plan créé avec succès !');
+    }
+
+
+    //VIEW PAGE CURRENT PLAN
+    public function adminCurrentPlan($id)
+    {
+        $plan = DB::table('plans')->where('id', $id)->first();
+        return view('auth.admin.admin-current-plan', ['plan' => $plan, 'message' => null]);
+    }
+
+    //FUNCTION UPDATE CURRENT PLAN
+    public function adminUpdateCurrentPlan(PlanFormRequest $request, $id)
+    {
+        $update = [
+            'name' => $request->name,
+            'price' => $request->price,
+            'stripe_id' => $request->stripe_id,
+        ];
+
+        //CHECK STRIPE ID
+
+        DB::table('plans')->where('id', $id)->update($update);
+
+        $plan = DB::table('plans')->where('id', $id)->first();
+
+        return view('auth.admin.admin-current-plan', ['plan' => $plan, 'message' => 'Plan mis à jour !']);
+    }
+
+    //FUNCTION DELETE CURRENT PLAN
+    public function adminDeleteCurrentPlan($id)
+    {
+        $planToDelete = DB::table('plans')->where('id', $id)->first();
+
+        /*
+        //Si le plan n'existe pas
+        if(is_null($planToDelete)){
+            $plans = DB::table('plans')->get();
+            return redirect(route('admin.plans'))->with(['plans' => $plans])->with('errors', 'Plan inexistant !');
+        }*/
+
+        DB::table('plans')->where('id', $id)->delete();
+
+        $plans = DB::table('plans')->get();
+        return redirect(route('admin.plans'))->with(['plans' => $plans])->with('success', 'Plan supprimé avec succès !');
     }
 
 }

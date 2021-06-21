@@ -94,6 +94,14 @@ Route::get('/admin/actualites/{id}/delete', [AdminController::class, 'adminDelet
 
 //PLANS ADMIN
 Route::get('/admin/plans', [AdminController::class, 'adminPlans'])->middleware('auth')->name('admin.plans');
+Route::get('/admin/plans/create', [AdminController::class, 'adminNewPlan'])->middleware('auth');
+Route::post('/admin/plans/create', [AdminController::class, 'adminCreateNewPlan'])->middleware('auth');
+
+Route::get('/admin/plans/{id}', [AdminController::class, 'adminCurrentPlan'])->middleware('auth');
+Route::post('/admin/plans/{id}', [AdminController::class, 'adminUpdateCurrentPlan'])->middleware('auth');
+
+Route::get('/admin/plans/{id}/delete', [AdminController::class, 'adminDeleteCurrentPlan'])->middleware('auth');
+
 
 //LOGIN
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])

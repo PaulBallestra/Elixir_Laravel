@@ -30,20 +30,29 @@
     </div>
 
     <!-- BTN CREER NOUVELLE ACTU -->
-    <div class="text-center">
+    <div class="text-center mb-3">
         <a href="/admin/plans/create"
            class="btnCustom inline-block bg-indigo-500 text-black px-4 py-2 my-2 my-auto rounded hover:bg-indigo-700 hover:text-white hover:no-underline"> Créer </a>
     </div>
 
-    <!-- VALIDATIONS -->
-    @if ($deleted)
+    <!-- SUCCESS MSG -->
+    @if (\Session::has('success'))
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mx-5 mb-3"
              role="alert">
             <ul>
-                <li> Plan supprimé avec succès ! </li>
+                <li>{!! \Session::get('success') !!}</li>
             </ul>
         </div>
-@endif
+    @endif
+
+    <!-- ERREURS -->
+    @if (\Session::has('errors'))
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mx-5 mb-5" role="alert">
+            <ul>
+                <li>{!! \Session::get('errors') !!}</li>
+            </ul>
+        </div>
+    @endif
 
     <!-- LISTES DES PLANS -->
     <table class="table-fixed mx-auto mt-3">
@@ -62,7 +71,7 @@
             <tr style="border-bottom: 1px solid black;">
                 <td>{{ $plan->id }}</td>
                 <td>{{ $plan->name }}</td>
-                <td>{{ $plan->created_at }}</td>
+                <td>{{ $plan->price }}</td>
                 <td>
 
                     <div class="grid grid-cols-2">
