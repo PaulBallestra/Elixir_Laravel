@@ -18,11 +18,11 @@ class ProfileFormRequest extends FormRequest
         return [
             'family_name' => 'required|string|max:255',
             'given_name' => 'required|string|max:255',
-            //'email_address' => 'required|email|unique:users',
-            'password' => 'nullable',
+            //'email_address' => 'required|email|unique:users', check fait plus tard
+            'password' => 'required',
             'address' => 'nullable|string|max:255',
             'town' => 'nullable|string|max:255',
-            'postal_code' => 'nullable'
+            'postal_code' => 'nullable|integer'
         ];
     }
 }

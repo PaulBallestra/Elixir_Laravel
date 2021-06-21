@@ -29,17 +29,17 @@
     </div>
 
 
-    @if($customError)
+    @if($message)
 
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mx-5 mb-3" role="alert">
             <ul>
-                <li> {{ $customError }} </li>
+                <li> {{ $message }} </li>
             </ul>
         </div>
 
     @endif
 
-<!-- ERREURS -->
+    <!-- ERREURS -->
     @if ($errors->any())
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mx-5 mb-5" role="alert">
             <ul>

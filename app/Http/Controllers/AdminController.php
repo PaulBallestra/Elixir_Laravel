@@ -28,13 +28,13 @@ class AdminController extends Controller
     public function adminUsers()
     {
         $users = DB::table('users')->get(); //get all users
-        return view('auth.admin.admin-users', ['users' => $users, 'deleted' => false, 'created' => false]);
+        return view('auth.admin.admin-users', ['users' => $users, 'message' => null]);
     }
 
     //PAGE create new user
     public function adminNewUser()
     {
-        return view('auth.admin.admin-create-user', ['customError' => false, 'updated' => false]);
+        return view('auth.admin.admin-create-user', ['message' => null]);
     }
 
     //FUNCTION create new user
@@ -46,7 +46,7 @@ class AdminController extends Controller
         if(User::where('email_address', '=', $request->email_address)->first()){
 
             //REDIRECT EXISTE DEJA
-            return view('auth.admin.admin-create-user', ['customError' => 'Cette adresse email est déjà utilisée !']);
+            return view('auth.admin.admin-create-user', ['message' => 'Cette adresse email est déjà utilisée !']);
 
         }else{
             $create += [
@@ -61,7 +61,7 @@ class AdminController extends Controller
                 'given_name' => $request->given_name,
             ];
         }else if(is_null($request->address) || is_null($request->town) || is_null($request->postal_code)){
-            return view('auth.admin.admin-create-user', ['customError' => 'L\'adresse est incomplète !']);
+            return view('auth.admin.admin-create-user', ['message' => 'L\'adresse est incomplète !']);
         }else{
             $create += [
                 'family_name' => $request->family_name,
@@ -89,16 +89,14 @@ class AdminController extends Controller
         //On réaffiche la page avec les infos modifiées et un message
         $users = DB::table('users')->get();
 
-        return view('auth.admin.admin-users', ['users' => $users, 'created' => true, 'deleted' => false]);
-
-
+        return view('auth.admin.admin-users', ['users' => $users, 'message' => 'Utilisateur créé avec succès !']);
     }
 
     //UPDATE PAGE USER
     public function adminCurrentUser($id)
     {
         $user = DB::table('users')->where('id', $id)->first();
-        return view('auth.admin.admin-current-user', ['user' => $user, 'updated' => false, 'customError' => false]);
+        return view('auth.admin.admin-current-user', ['user' => $user, 'message' => null, 'messageGreen' => null]);
     }
 
     //UPDATE FUNCTION USER
@@ -115,7 +113,7 @@ class AdminController extends Controller
         }else if(User::where('email_address', '=', $request->email_address)->first()){
 
             //REDIRECT EXISTE DEJA
-            return view('auth.admin.admin-current-user', ['user' => $user, 'updated' => false, 'customError' => 'Cette adresse email est déjà utilisée !']);
+            return view('auth.admin.admin-current-user', ['user' => $user, 'message' => 'Cette adresse email est déjà utilisée !', 'messageGreen' => null]);
 
         }else{
             $update += [
@@ -130,7 +128,7 @@ class AdminController extends Controller
                 'given_name' => $request->given_name,
             ];
         }else if(is_null($request->address) || is_null($request->town) || is_null($request->postal_code)){
-            return view('auth.admin.admin-current-user', ['user' => $user, 'updated' => false, 'customError' => 'L\'adresse est incomplète !']);
+            return view('auth.admin.admin-current-user', ['user' => $user, 'message' => 'L\'adresse est incomplète !', 'messageGreen' => null]);
         }else{
             $update += [
                 'family_name' => $request->family_name,
@@ -165,7 +163,7 @@ class AdminController extends Controller
         $valuesChangedUser = DB::table('users')->where(['id' => $id])->first();
 
         //On réaffiche la page avec les infos modifiées et un message
-        return view('auth.admin.admin-current-user', ['user' => $valuesChangedUser, 'updated' => true, 'customError' => false]);
+        return view('auth.admin.admin-current-user', ['user' => $valuesChangedUser, 'messageGreen' => 'Utilisateur mis à jour avec succès !', 'message' => null]);
 
     }
 
@@ -176,7 +174,8 @@ class AdminController extends Controller
 
         $users = DB::table('users')->get();
 
-        return redirect('/admin/users')->with(['users' => $users, 'deleted' => true, 'created' => false]);
+        return view('auth.admin.admin-users', ['users' => $users, 'message' => 'Utilisateur supprimé avec succès !']);
+
     }
 
 
