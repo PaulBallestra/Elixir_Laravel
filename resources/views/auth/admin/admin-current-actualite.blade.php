@@ -28,6 +28,17 @@
         </div>
     </div>
 
+    <!-- ERREUR VALIDATIONS -->
+    @if ($errors->any())
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mx-5 mb-5" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <!-- INFOS ACTU -->
     <div class="mb-5 sm:mt-0">
         <div class="md:grid md:grid-cols-4 md:gap-6">
@@ -50,18 +61,14 @@
                                     <label for="short_description"
                                            class="block text-sm font-medium text-gray-700">Short Description</label>
                                     <textarea type="text" name="short_description" id="short_description"
-                                           class="resize-y border rounded-md mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                         {{ $actualite->short_description }}
-                                    </textarea>
+                                           class="resize-y border rounded-md mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $actualite->short_description }}</textarea>
                                 </div>
 
                                 <div class="col-span-6">
                                     <label for="description" class="block text-sm font-medium text-gray-700">Description
                                         Complète</label>
                                     <textarea type="text" name="description" id="description"
-                                              class="resize-y border rounded-md mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                         {{ $actualite->description }}
-                                    </textarea>
+                                              class="resize-y border rounded-md mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $actualite->description }}</textarea>
                                 </div>
 
                                 <div class="col-span-6">

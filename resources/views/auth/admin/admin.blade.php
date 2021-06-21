@@ -54,7 +54,7 @@
                     <p class="mt-2 text-gray-600">Gérez les abonnements de vos utilisateurs</p>
                 </div>
                 <div class="flex justify-end mt-4">
-                    <a href="admin/abonnements" class="text-xl font-medium text-indigo-500">Gérer</a>
+                    <a href="admin/plans" class="text-xl font-medium text-indigo-500">Gérer</a>
                 </div>
             </div>
         </a>

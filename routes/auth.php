@@ -91,6 +91,10 @@ Route::get('/admin/actualites/{id}', [AdminController::class, 'adminCurrentActua
 Route::post('/admin/actualites/{id}', [AdminController::class, 'adminUpdateCurrentActualite'])->middleware('auth');
 Route::get('/admin/actualites/{id}/delete', [AdminController::class, 'adminDeleteCurrentActualite'])->middleware('auth');
 
+
+//PLANS ADMIN
+Route::get('/admin/plans', [AdminController::class, 'adminPlans'])->middleware('auth')->name('admin.plans');
+
 //LOGIN
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
     ->middleware('guest')

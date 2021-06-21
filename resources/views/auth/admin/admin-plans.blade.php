@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Elixir - Actualités : Admin</title>
+    <title>Elixir - Plans : Admin</title>
 
     <!-- INTEGRATION TAILWIND -->
     <meta charset="UTF-8"/>
@@ -24,14 +24,14 @@
     <!-- TITLE DE LA PAGE -->
     <div class="grid grid-cols-6 gap-4 mb-4">
         <div class="col-start-2 col-span-4">
-            <h1 class="titleCustomClass mt-4 text-center"> ADMIN - ACTUALITÉS </h1>
-            <h3 class="sousTitleCustomClass text-center"> Gérez vos actualités, leurs description, image, ... </h3>
+            <h1 class="titleCustomClass mt-4 text-center"> ADMIN - PLANS </h1>
+            <h3 class="sousTitleCustomClass text-center"> Gérez vos plans, leurs prix, avantages, ... </h3>
         </div>
     </div>
 
     <!-- BTN CREER NOUVELLE ACTU -->
     <div class="text-center">
-        <a href="/admin/actualites/create"
+        <a href="/admin/plans/create"
            class="btnCustom inline-block bg-indigo-500 text-black px-4 py-2 my-2 my-auto rounded hover:bg-indigo-700 hover:text-white hover:no-underline"> Créer </a>
     </div>
 
@@ -40,40 +40,40 @@
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mx-5 mb-3"
              role="alert">
             <ul>
-                <li> Actualité supprimée avec succès ! </li>
+                <li> Plan supprimé avec succès ! </li>
             </ul>
         </div>
-    @endif
+@endif
 
-    <!-- LISTES DES ACTUS -->
+    <!-- LISTES DES PLANS -->
     <table class="table-fixed mx-auto mt-3">
         <thead>
         <tr>
             <th class="w-1/4"> IDs </th>
             <th class="w-1/4"> Nom </th>
-            <th class="w-1/4"> Date </th>
+            <th class="w-1/4"> Prix </th>
             <th class="w-1/4s">Actions</th>
         </tr>
         </thead>
         <tbody>
 
-        @foreach($actualites as $actualite)
+        @foreach($plans as $plan)
 
             <tr style="border-bottom: 1px solid black;">
-                <td>{{ $actualite->id }}</td>
-                <td>{{ $actualite->name }}</td>
-                <td>{{ $actualite->created_at }}</td>
+                <td>{{ $plan->id }}</td>
+                <td>{{ $plan->name }}</td>
+                <td>{{ $plan->created_at }}</td>
                 <td>
 
                     <div class="grid grid-cols-2">
 
                         <div class="text-center">
-                            <a href="/admin/actualites/{{ $actualite->id }}"
+                            <a href="/admin/plans/{{ $plan->id }}"
                                class="btnCustom inline-block bg-yellow-500 text-black px-4 py-2 my-auto rounded hover:bg-yellow-700 hover:text-white hover:no-underline"> Modifier </a>
                         </div>
 
                         <div class="text-center">
-                            <a href="/admin/actualites/{{ $actualite->id }}/delete"
+                            <a href="/admin/plans/{{ $plan->id }}/delete"
                                class="btnCustom inline-block bg-red-500 text-black px-4 py-2 rounded hover:bg-red-700 hover:text-white hover:no-underline"> Supprimer </a>
                         </div>
 

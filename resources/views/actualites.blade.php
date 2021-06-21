@@ -32,9 +32,9 @@
     <!-- GRID DES ACTUALITÉS -->
     <div class="grid pb-5 sm:grid-cols-3 sm:grid-cols-4 sm:gap-4">
 
-    @foreach($actualites as $actualite)
+        @foreach($actualites as $actualite)
 
-        <!-- ACTU GAUCHE -->
+            <!-- ACTU GAUCHE -->
             <div class="col-start-1 sm:col-start-1 col-end-3">
                 <livewire:actualite :actualite="$actualite" />
             </div>
@@ -45,6 +45,8 @@
             </div>
 
         @endforeach
+
+        <!-- AUCUNES ACTUALITES SI 0 -->
 
     </div>
 </div>
