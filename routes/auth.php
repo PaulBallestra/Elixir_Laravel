@@ -13,6 +13,7 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\VerifyUserIsAdmin;
 
 //HOME
 Route::get('/', [App\Http\Controllers\Controller::class, 'accueil'])->name('accueil');
@@ -60,47 +61,47 @@ Route::post('/profile', [UserController::class, 'saveProfile'])
 //ADMIN
 //Admin dashboard
 Route::get('/admin', [AdminController::class, 'admin'])
-    ->middleware('auth')
+    ->middleware('auth')->middleware(VerifyUserIsAdmin::class)
     ->name('admin');
 
 //Admin All users
 Route::get('/admin/users', [AdminController::class, 'adminUsers'])
-    ->middleware('auth')
+    ->middleware('auth')->middleware(VerifyUserIsAdmin::class)
     ->name('admin.users');
 
 //Admin Create actualité
-Route::get('admin/users/create', [AdminController::class, 'adminNewUser'])->middleware('auth');
-Route::post('admin/users/create', [AdminController::class, 'adminCreateNewUser'])->middleware('auth');
+Route::get('admin/users/create', [AdminController::class, 'adminNewUser'])->middleware('auth')->middleware(VerifyUserIsAdmin::class);
+Route::post('admin/users/create', [AdminController::class, 'adminCreateNewUser'])->middleware('auth')->middleware(VerifyUserIsAdmin::class);
 
 
 //Admin Current user
-Route::get('/admin/users/{id}', [AdminController::class, 'adminCurrentUser'])->middleware('auth');
-Route::post('/admin/users/{id}', [AdminController::class, 'adminUpdateCurrentUser'])->middleware('auth');
-Route::get('/admin/users/{id}/delete', [AdminController::class, 'adminDeleteCurrentUser'])->middleware('auth');
+Route::get('/admin/users/{id}', [AdminController::class, 'adminCurrentUser'])->middleware('auth')->middleware(VerifyUserIsAdmin::class);
+Route::post('/admin/users/{id}', [AdminController::class, 'adminUpdateCurrentUser'])->middleware('auth')->middleware(VerifyUserIsAdmin::class);
+Route::get('/admin/users/{id}/delete', [AdminController::class, 'adminDeleteCurrentUser'])->middleware('auth')->middleware(VerifyUserIsAdmin::class);
 
 //ACTU ADMIN
 //Admin All Actualités
-Route::get('/admin/actualites', [AdminController::class, 'adminActualites'])->middleware('auth')->name('admin.actualites');
+Route::get('/admin/actualites', [AdminController::class, 'adminActualites'])->middleware('auth')->middleware(VerifyUserIsAdmin::class)->name('admin.actualites');
 
 //Admin Create actualité
-Route::get('admin/actualites/create', [AdminController::class, 'adminNewActualite'])->middleware('auth');
-Route::post('admin/actualites/create', [AdminController::class, 'adminCreateNewActualite'])->middleware('auth');
+Route::get('admin/actualites/create', [AdminController::class, 'adminNewActualite'])->middleware('auth')->middleware(VerifyUserIsAdmin::class);
+Route::post('admin/actualites/create', [AdminController::class, 'adminCreateNewActualite'])->middleware('auth')->middleware(VerifyUserIsAdmin::class);
 
 //Admin Current actualité
-Route::get('/admin/actualites/{id}', [AdminController::class, 'adminCurrentActualite'])->middleware('auth');
-Route::post('/admin/actualites/{id}', [AdminController::class, 'adminUpdateCurrentActualite'])->middleware('auth');
-Route::get('/admin/actualites/{id}/delete', [AdminController::class, 'adminDeleteCurrentActualite'])->middleware('auth');
+Route::get('/admin/actualites/{id}', [AdminController::class, 'adminCurrentActualite'])->middleware('auth')->middleware(VerifyUserIsAdmin::class);
+Route::post('/admin/actualites/{id}', [AdminController::class, 'adminUpdateCurrentActualite'])->middleware('auth')->middleware(VerifyUserIsAdmin::class);
+Route::get('/admin/actualites/{id}/delete', [AdminController::class, 'adminDeleteCurrentActualite'])->middleware('auth')->middleware(VerifyUserIsAdmin::class);
 
 
 //PLANS ADMIN
-Route::get('/admin/plans', [AdminController::class, 'adminPlans'])->middleware('auth')->name('admin.plans');
-Route::get('/admin/plans/create', [AdminController::class, 'adminNewPlan'])->middleware('auth');
-Route::post('/admin/plans/create', [AdminController::class, 'adminCreateNewPlan'])->middleware('auth');
+Route::get('/admin/plans', [AdminController::class, 'adminPlans'])->middleware('auth')->name('admin.plans')->middleware(VerifyUserIsAdmin::class);
+Route::get('/admin/plans/create', [AdminController::class, 'adminNewPlan'])->middleware('auth')->middleware(VerifyUserIsAdmin::class);
+Route::post('/admin/plans/create', [AdminController::class, 'adminCreateNewPlan'])->middleware('auth')->middleware(VerifyUserIsAdmin::class);
 
-Route::get('/admin/plans/{id}', [AdminController::class, 'adminCurrentPlan'])->middleware('auth');
-Route::post('/admin/plans/{id}', [AdminController::class, 'adminUpdateCurrentPlan'])->middleware('auth');
+Route::get('/admin/plans/{id}', [AdminController::class, 'adminCurrentPlan'])->middleware('auth')->middleware(VerifyUserIsAdmin::class);
+Route::post('/admin/plans/{id}', [AdminController::class, 'adminUpdateCurrentPlan'])->middleware('auth')->middleware(VerifyUserIsAdmin::class);
 
-Route::get('/admin/plans/{id}/delete', [AdminController::class, 'adminDeleteCurrentPlan'])->middleware('auth');
+Route::get('/admin/plans/{id}/delete', [AdminController::class, 'adminDeleteCurrentPlan'])->middleware('auth')->middleware(VerifyUserIsAdmin::class);
 
 
 //LOGIN
