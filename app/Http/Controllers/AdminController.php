@@ -279,11 +279,14 @@ class AdminController extends Controller
     {
         //Validations avec la request
 
+        $result = $request->image->storeOnCloudinary();
+        //dd($result);
+
         $createValues = [
             'name' => $request->name,
             'short_description' => $request->short_description,
             'description' => $request->description,
-            'image' => 'link cloudinary'
+            'image' => $result->getSecurePath()
         ];
 
         if($request->is_visible)

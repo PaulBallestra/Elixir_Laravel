@@ -12,6 +12,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     @livewireStyles
+    @cloudinaryJS
 </head>
 <body class="antialiased">
 

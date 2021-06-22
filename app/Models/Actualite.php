@@ -9,6 +9,4 @@ class Actualite extends Model
 {
     use HasFactory;
 
-
-
 }

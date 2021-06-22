@@ -12,6 +12,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     @livewireStyles
+    @cloudinaryJS
 </head>
 <body class="antialiased">
 
@@ -32,7 +33,7 @@
     <div class="mb-5 sm:mt-0">
         <div class="md:grid md:grid-cols-4 md:gap-6">
             <div class="mt-5 md:mt-0 md:col-start-2 md:col-end-4">
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
@@ -50,17 +51,14 @@
                                     <label for="short_description"
                                            class="block text-sm font-medium text-gray-700">Short Description</label>
                                     <textarea type="text" name="short_description" id="short_description"
-                                              class="resize-y border rounded-md mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-
-                                    </textarea>
+                                              class="resize-y border rounded-md mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
                                 </div>
 
                                 <div class="col-span-6">
                                     <label for="description" class="block text-sm font-medium text-gray-700">Description
                                         Complète</label>
                                     <textarea type="text" name="description" id="description"
-                                              class="resize-y border rounded-md mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                    </textarea>
+                                              class="resize-y border rounded-md mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
                                 </div>
 
                                 <div class="col-span-6">
