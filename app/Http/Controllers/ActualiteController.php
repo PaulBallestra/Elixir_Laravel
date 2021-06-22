@@ -12,6 +12,9 @@ class ActualiteController extends Controller
     public function actualites()
     {
         $actualites = DB::table('actualites')->where('is_visible', '=', true)->get();
+
+        //dd($actualites);
+
         return view('actualites', ['actualites' => $actualites]);
     }
 

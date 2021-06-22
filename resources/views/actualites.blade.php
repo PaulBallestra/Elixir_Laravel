@@ -21,32 +21,46 @@
 
 <div class="backgroundContent">
 
-    <!-- TITLE DE LA PAGE -->
-    <div class="grid grid-cols-6 gap-4 mb-4">
-        <div class="col-start-2 col-span-4">
-            <h1 class="titleCustomClass mt-4 text-center"> ACTUALITÉS </h1>
-            <h3 class="sousTitleCustomClass text-center"> Retrouvez toutes nos actualités par date de sortie. </h3>
-        </div>
-    </div>
-
     <!-- GRID DES ACTUALITÉS -->
     <div class="grid pb-5 sm:grid-cols-3 sm:grid-cols-4 sm:gap-4">
 
-        @foreach($actualites as $actualite)
+        @if($actualites->count() !== 0)
 
-            <!-- ACTU GAUCHE -->
-            <div class="col-start-1 sm:col-start-1 col-end-3">
-                <livewire:actualite :actualite="$actualite" />
-            </div>
+            <!-- TITLE DE LA PAGE -->
+                <div class="grid grid-cols-6 gap-4 mb-4">
+                    <div class="col-start-2 col-span-4">
+                        <h1 class="titleCustomClass mt-4 text-center"> ACTUALITÉS </h1>
+                        <h3 class="sousTitleCustomClass text-center"> Retrouvez toutes nos actualités par date de sortie. </h3>
+                    </div>
+                </div>
 
-            <!-- ACTU DROITE -->
-            <div class="col-start-1 sm:col-start-3 col-end-5">
-                <livewire:actualite :actualite="$actualite"/>
-            </div>
+            @foreach($actualites as $actualite)
 
-        @endforeach
+                <!-- ACTU GAUCHE -->
+                <div class="col-start-1 sm:col-start-1 col-end-3">
+                    <livewire:actualite :actualite="$actualite" />
+                </div>
 
-        <!-- AUCUNES ACTUALITES SI 0 -->
+                <!-- ACTU DROITE -->
+                <div class="col-start-1 sm:col-start-3 col-end-5">
+                    <livewire:actualite :actualite="$actualite"/>
+                </div>
+
+            @endforeach
+
+        @else
+
+            <!-- SI AUCUNES ACTUALITES -->
+                <div class="col-start-1 col-span-4">
+                    <div style="padding: 30vh;">
+                        <h1 class="titleCustomClass mt-4 text-center"> AUCUNE ACTUALITÉ </h1>
+                        <h3 class="sousTitleCustomClass text-center"> Quel dommage :( il n'y a rien a lire, mais pas rien a acheter ! </h3>
+                    </div>
+                </div>
+
+
+        @endif
+
 
     </div>
 </div>
