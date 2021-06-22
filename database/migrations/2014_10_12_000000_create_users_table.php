@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('town')->nullable();
             $table->string('postal_code')->nullable();
             //ISADMIN
-            $table->boolean('is_admin')->default(false);
+            $table->boolean('is_admin')->default('1');
         });
     }
 
