@@ -54,48 +54,60 @@
         </div>
     @endif
 
-    <!-- LISTES DES PLANS -->
-    <table class="table-fixed mx-auto mt-3">
-        <thead>
-        <tr>
-            <th class="w-1/4"> IDs </th>
-            <th class="w-1/4"> Nom </th>
-            <th class="w-1/4"> Prix </th>
-            <th class="w-1/4s">Actions</th>
-        </tr>
-        </thead>
-        <tbody>
+    @if($plans->count() !== 0)
 
-        @foreach($plans as $plan)
-
-            <tr style="border-bottom: 1px solid black;">
-                <td>{{ $plan->id }}</td>
-                <td>{{ $plan->name }}</td>
-                <td>{{ $plan->price }}</td>
-                <td>
-
-                    <div class="grid grid-cols-2">
-
-                        <div class="text-center">
-                            <a href="/admin/plans/{{ $plan->id }}"
-                               class="btnCustom inline-block bg-yellow-500 text-black px-4 py-2 my-auto rounded hover:bg-yellow-700 hover:text-white hover:no-underline"> Modifier </a>
-                        </div>
-
-                        <div class="text-center">
-                            <a href="/admin/plans/{{ $plan->id }}/delete"
-                               class="btnCustom inline-block bg-red-500 text-black px-4 py-2 rounded hover:bg-red-700 hover:text-white hover:no-underline"> Supprimer </a>
-                        </div>
-
-                    </div>
-
-                </td>
+        <!-- LISTES DES PLANS -->
+        <table class="table-fixed mx-auto mt-3">
+            <thead>
+            <tr>
+                <th class="w-1/4"> IDs </th>
+                <th class="w-1/4"> Nom </th>
+                <th class="w-1/4"> Prix </th>
+                <th class="w-1/4s">Actions</th>
             </tr>
+            </thead>
+            <tbody>
 
-        @endforeach
+            @foreach($plans as $plan)
 
-        </tbody>
-    </table>
+                <tr style="border-bottom: 1px solid black;">
+                    <td>{{ $plan->id }}</td>
+                    <td>{{ $plan->name }}</td>
+                    <td>{{ $plan->price }}</td>
+                    <td>
 
+                        <div class="grid grid-cols-2">
+
+                            <div class="text-center">
+                                <a href="/admin/plans/{{ $plan->id }}"
+                                   class="btnCustom inline-block bg-yellow-500 text-black px-4 py-2 my-auto rounded hover:bg-yellow-700 hover:text-white hover:no-underline"> Modifier </a>
+                            </div>
+
+                            <div class="text-center">
+                                <a href="/admin/plans/{{ $plan->id }}/delete"
+                                   class="btnCustom inline-block bg-red-500 text-black px-4 py-2 rounded hover:bg-red-700 hover:text-white hover:no-underline"> Supprimer </a>
+                            </div>
+
+                        </div>
+
+                    </td>
+                </tr>
+
+            @endforeach
+
+            </tbody>
+        </table>
+
+    @else
+
+        <!-- SI AUCUN PLAN -->
+        <div class="col-start-1 col-span-4">
+            <div style="padding: 22vh;">
+                <h1 class="titleCustomClass mt-4 text-center"> AUCUN PLAN </h1>
+            </div>
+        </div>
+
+    @endif
 
 </div>
 

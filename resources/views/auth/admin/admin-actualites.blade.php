@@ -45,49 +45,62 @@
         </div>
     @endif
 
-    <!-- LISTES DES ACTUS -->
-    <table class="table-fixed mx-auto mt-3">
-        <thead>
-        <tr>
-            <th class="w-1/5"> IDs </th>
-            <th class="w-1/5"> Nom </th>
-            <th class="w-1/5"> Date </th>
-            <th class="w-1/5"> IsVisible </th>
-            <th class="w-1/5">Actions</th>
-        </tr>
-        </thead>
-        <tbody>
+    @if($actualites->count() !== 0)
 
-        @foreach($actualites as $actualite)
-
-            <tr style="border-bottom: 1px solid black;">
-                <td>{{ $actualite->id }}</td>
-                <td>{{ $actualite->name }}</td>
-                <td>{{ $actualite->created_at }}</td>
-                <td>{{ $actualite->is_visible }}</td>
-                <td>
-
-                    <div class="grid grid-cols-2">
-
-                        <div class="text-center">
-                            <a href="/admin/actualites/{{ $actualite->id }}"
-                               class="btnCustom inline-block bg-yellow-500 text-black px-4 py-2 my-auto rounded hover:bg-yellow-700 hover:text-white hover:no-underline"> Modifier </a>
-                        </div>
-
-                        <div class="text-center">
-                            <a href="/admin/actualites/{{ $actualite->id }}/delete"
-                               class="btnCustom inline-block bg-red-500 text-black px-4 py-2 rounded hover:bg-red-700 hover:text-white hover:no-underline"> Supprimer </a>
-                        </div>
-
-                    </div>
-
-                </td>
+        <!-- LISTES DES ACTUS -->
+        <table class="table-fixed mx-auto mt-3">
+            <thead>
+            <tr>
+                <th class="w-1/5"> IDs </th>
+                <th class="w-1/5"> Nom </th>
+                <th class="w-1/5"> Date </th>
+                <th class="w-1/5"> IsVisible </th>
+                <th class="w-1/5">Actions</th>
             </tr>
+            </thead>
+            <tbody>
 
-        @endforeach
+            @foreach($actualites as $actualite)
 
-        </tbody>
-    </table>
+                <tr style="border-bottom: 1px solid black;">
+                    <td>{{ $actualite->id }}</td>
+                    <td>{{ $actualite->name }}</td>
+                    <td>{{ $actualite->created_at }}</td>
+                    <td>{{ $actualite->is_visible }}</td>
+                    <td>
+
+                        <div class="grid grid-cols-2">
+
+                            <div class="text-center">
+                                <a href="/admin/actualites/{{ $actualite->id }}"
+                                   class="btnCustom inline-block bg-yellow-500 text-black px-4 py-2 my-auto rounded hover:bg-yellow-700 hover:text-white hover:no-underline"> Modifier </a>
+                            </div>
+
+                            <div class="text-center">
+                                <a href="/admin/actualites/{{ $actualite->id }}/delete"
+                                   class="btnCustom inline-block bg-red-500 text-black px-4 py-2 rounded hover:bg-red-700 hover:text-white hover:no-underline"> Supprimer </a>
+                            </div>
+
+                        </div>
+
+                    </td>
+                </tr>
+
+            @endforeach
+
+            </tbody>
+        </table>
+
+    @else
+
+        <!-- SI AUCUNES ACTUALITES -->
+        <div class="col-start-1 col-span-4">
+            <div style="padding: 22vh;">
+                <h1 class="titleCustomClass mt-4 text-center"> AUCUNE ACTUALITÉ </h1>
+            </div>
+        </div>
+
+    @endif
 
 
 </div>
