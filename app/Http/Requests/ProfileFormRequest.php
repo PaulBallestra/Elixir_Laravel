@@ -19,7 +19,7 @@ class ProfileFormRequest extends FormRequest
             'family_name' => 'required|string|max:255',
             'given_name' => 'required|string|max:255',
             //'email_address' => 'required|email|unique:users', check fait plus tard
-            'password' => 'required',
+            //'password' => 'required', check fait plus tard
             'address' => 'nullable|string|max:255',
             'town' => 'nullable|string|max:255',
             'postal_code' => 'nullable|integer'

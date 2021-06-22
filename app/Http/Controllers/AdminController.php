@@ -140,6 +140,13 @@ class AdminController extends Controller
             ];
         }
 
+        //Check du password a la main
+        if($request->password){
+            $update += [
+                'password' => $request->password
+            ];
+        }
+
         //VERIFIEZ QU'IL NE REMPLI PAS QU'UN SEUL CHAMPS DE L'ADDRESSE
         if(is_null($request->address) && is_null($request->town) && is_null($request->postal_code)){
             $update += [
