@@ -143,7 +143,7 @@
     const clientSecret = cardButton.dataset.secret;
 
     card.on('change', ({error}) => {
-        let displayError = document.getElementById('card-errors');
+        const displayError = document.getElementById('card-errors');
         if (error) {
             displayError.textContent = error.message;
             displayError.style.display = 'block';
@@ -153,7 +153,7 @@
         }
     });
 
-    var form = document.getElementById('payment-form');
+    const form = document.getElementById('payment-form');
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -168,17 +168,17 @@
         );
 
         if (error) {
-            let displayError = document.getElementById('card-errors');
+            const displayError = document.getElementById('card-errors');
             displayError.textContent = error.message;
             displayError.style.display = 'block';
         } else {
             console.log(setupIntent);
 
-            let displayError = document.getElementById('card-errors');
+            const displayError = document.getElementById('card-errors');
             displayError.textContent = '';
             displayError.style.display = 'none';
 
-            let payment_method = document.createElement('input');
+            const payment_method = document.createElement('input');
             payment_method.setAttribute('type', 'hidden');
             payment_method.setAttribute('name', 'payment_method');
             payment_method.value = setupIntent.payment_method;

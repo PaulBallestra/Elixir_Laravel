@@ -336,7 +336,6 @@ class AdminController extends Controller
         ];
 
         //CHECK STRIPE ID
-
         DB::table('plans')->insert($create);
 
         $plans = DB::table('plans')->get();
@@ -395,15 +394,7 @@ class AdminController extends Controller
             return redirect(route('admin.plans'))->with('plans', $plans);
         }
 
-
         $planToDelete = DB::table('plans')->where('id', $id)->first();
-
-        /*
-        //Si le plan n'existe pas
-        if(is_null($planToDelete)){
-            $plans = DB::table('plans')->get();
-            return redirect(route('admin.plans'))->with(['plans' => $plans])->with('errors', 'Plan inexistant !');
-        }*/
 
         DB::table('plans')->where('id', $id)->delete();
 

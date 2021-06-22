@@ -37,12 +37,21 @@
         </div>
     @endif
 
-    <!-- ABONNEMENT CONTENT -->
-    <!-- Si aucun abonnement -->
-    <h3 class="sousTitleCustomClass text-center mx-auto"> Vous n'avez aucun abonnement pour le moment. </h3>
-    <h3 class="sousTitleCustomClass text-center mx-auto"> Choisissez en un ci-dessous. </h3>
+    @if($subscription)
 
+        <!-- Si il y a un abonnement -->
+        <h3 class="sousTitleCustomClass text-center mx-auto"> Abonnement {{ $subscription->stripe_id }} </h3>
+        <h3 class="sousTitleCustomClass text-center mx-auto"> XXXX-XXXX-XXXX-{{ Auth::user()->pm_last_four }} </h3>
 
+    @else
+
+        <!-- Si aucun abonnement -->
+        <h3 class="sousTitleCustomClass text-center mx-auto"> Vous n'avez aucun abonnement pour le moment. </h3>
+        <h3 class="sousTitleCustomClass text-center mx-auto"> Choisissez en un ci-dessous. </h3>
+
+    @endif
+
+<!-- ABONNEMENT CONTENT -->
     <hr style="color: black;" class="mt-10 md:mb-5">
 
     <!-- 2 ABONNEMENTS -->
