@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
@@ -48,6 +49,11 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'is_admin' => false
         ]);
+
+        //Si c'est le premier user, on le passe en admin
+        if($user->id === 1){
+            DB::table('users')->where('id', $user->id)->update(['is_admin' => 1]);
+        }
 
         event(new Registered($user));
 

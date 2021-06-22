@@ -18,12 +18,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            /* ADDRESS */
             $table->string('address')->nullable();
             $table->string('town')->nullable();
             $table->string('postal_code')->nullable();
-            //ISADMIN
-            $table->boolean('is_admin')->default('1');
+            $table->boolean('is_admin')->default(0);
         });
     }
 

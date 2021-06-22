@@ -64,7 +64,7 @@
                                        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-sans titleHeaderClass">LOGOUT</a>
 
                                     <!-- CHECK IS ADMIN -->
-                                    @if(Auth::user()->is_admin === 1)
+                                    @if(Auth::user()->is_admin)
                                     <a href="/admin"
                                        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-sans titleHeaderClass">ADMIN</a>
                                     @endif
