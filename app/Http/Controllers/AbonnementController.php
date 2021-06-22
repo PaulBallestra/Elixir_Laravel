@@ -18,9 +18,9 @@ class AbonnementController extends Controller
         //Check si il a un abonnement
         $subscription = DB::table('subscriptions')->where('user_id', $user->id)->first();
 
-        $planName = DB::table('plans')->where('stripe_id', $subscription->stripe_price)->first();
-
         if($subscription){
+            $planName = DB::table('plans')->where('stripe_id', $subscription->stripe_price)->first();
+
             return view('auth.abonnements', ['subscribed' => false, 'subscription' => $subscription]);
         }else{
             return view('auth.abonnements', ['subscribed' => false, 'subscription' => null]);
@@ -30,6 +30,17 @@ class AbonnementController extends Controller
 
     public function monthlyAbonnement(Request $request)
     {
+
+        //Vérif si l'user a déjà un abonnement en cours
+        if(Auth::user()->stripe_id !== null){
+
+            //check in subscriptions db if stripe_id is active
+            $oldSubscription = DB::table('subscriptions')->where('user_id', Auth::user()->id)->first();
+
+            if($oldSubscription->stripe_status === 'active')
+                return redirect(route('abonnement'))->withErrors('Vous avez déjà un abonnement en cours !');
+        }
+
         $intent = $request->user()->createSetupIntent();
         $stripeKey = env('STRIPE_KEY');
 
@@ -38,6 +49,18 @@ class AbonnementController extends Controller
 
     public function yearlyAbonnement(Request $request)
     {
+
+        //Vérif si l'user a déjà un abonnement en cours
+        if(Auth::user()->stripe_id !== null){
+
+            //check in subscriptions db if stripe_id is active
+            $oldSubscription = DB::table('subscriptions')->where('user_id', Auth::user()->id)->first();
+
+            if($oldSubscription->stripe_status === 'active')
+                return redirect(route('abonnement'))->withErrors('Vous avez déjà un abonnement en cours !');
+        }
+
+
         $intent = $request->user()->createSetupIntent();
         $stripeKey = env('STRIPE_KEY');
 
@@ -57,11 +80,8 @@ class AbonnementController extends Controller
         //Récup du plan
         $plan = Plan::find($request->plan);
 
-        //dd($request->payment_method);
 
         try {
-
-            dd($plan->stripe_id);
 
             $subscription = $request->user()
                 ->newSubscription('default', $plan->stripe_id)
@@ -69,7 +89,7 @@ class AbonnementController extends Controller
 
         } catch (IncompletePayment $exception) {
 
-            dd($exception->payment->id);
+            //dd($exception->payment->id);
 
             return redirect()->route('cashier.payment', [
                 $exception->payment->id, 'redirect' => route('abonnement')

@@ -27,6 +27,17 @@
         </div>
     </div>
 
+    <!-- ERREURS -->
+    @if ($errors->any())
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mx-5 mb-5" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <!-- SUCCESS MSG -->
     @if (\Session::has('success'))
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mx-5 mb-3"
@@ -40,7 +51,7 @@
     @if($subscription)
 
         <!-- Si il y a un abonnement -->
-        <h3 class="sousTitleCustomClass text-center mx-auto"> Abonnement {{ $subscription->stripe_id }} </h3>
+        <h3 class="sousTitleCustomClass text-center mx-auto"> Abonnement NOM - PRIX </h3>
         <h3 class="sousTitleCustomClass text-center mx-auto"> XXXX-XXXX-XXXX-{{ Auth::user()->pm_last_four }} </h3>
 
     @else
