@@ -35,15 +35,12 @@
                 </div>
             </div>
 
+        <?php $c = false; //Pour gerer l'affichage ?>
+
         @foreach($actualites as $actualite)
 
-            <!-- ACTU GAUCHE -->
-                <div class="col-start-1 sm:col-start-1 col-end-3">
-                    <livewire:actualite :actualite="$actualite"/>
-                </div>
-
-                <!-- ACTU DROITE -->
-                <div class="col-start-1 sm:col-start-3 col-end-5">
+                <!-- ACTU GAUCHE -->
+                <div class=" <?= ($c = !$c) ? 'col-start-1 sm:col-start-1 col-end-5 sm:col-end-3' : 'col-start-1 sm:col-start-3 col-end-5' ?>">
                     <livewire:actualite :actualite="$actualite"/>
                 </div>
 
