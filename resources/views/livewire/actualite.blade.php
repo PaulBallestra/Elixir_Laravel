@@ -1,4 +1,4 @@
-<div class="divActualite" style="background-image: url({{asset('images/type_elixir.png')}})">
+<div class="divActualite" style="background-image: url({{ $image }})">
 
     <div class="divActualiteInfos">
 

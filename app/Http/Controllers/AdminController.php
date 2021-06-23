@@ -250,8 +250,17 @@ class AdminController extends Controller
             'name' => $request->name,
             'short_description' => $request->short_description,
             'description' => $request->description,
-            'image' => 'link cloudinary'
         ];
+
+        //Check si l'image doit changer
+        if($request->image){
+
+            $result = $request->image->storeOnCloudinary();
+
+            $updateValues += [
+                'image' => $result->getSecurePath()
+            ];
+        }
 
         //IS visible
         if($request->is_visible)
@@ -279,8 +288,8 @@ class AdminController extends Controller
     {
         //Validations avec la request
 
+        //Upload de l'img sur cloudinary
         $result = $request->image->storeOnCloudinary();
-        //dd($result);
 
         $createValues = [
             'name' => $request->name,

@@ -27,8 +27,8 @@
     @if($actualites->count() !== 0)
 
             <!-- TITLE DE LA PAGE -->
-            <div class="grid grid-cols-6 gap-4 mb-4">
-                <div class="col-start-2 col-span-4">
+            <div class="col-start-1 col-span-4 mb-3">
+                <div>
                     <h1 class="titleCustomClass mt-4 text-center"> ACTUALITÉS </h1>
                     <h3 class="sousTitleCustomClass text-center"> Retrouvez toutes nos actualités par date de
                         sortie. </h3>
