@@ -40,11 +40,13 @@
         @foreach($actualites as $actualite)
 
                 <!-- ACTU GAUCHE -->
-                <div class=" <?= ($c = !$c) ? 'col-start-1 sm:col-start-1 col-end-5 sm:col-end-3' : 'col-start-1 sm:col-start-3 col-end-5' ?>">
+                <div class="pb-5 <?= ($c = !$c) ? 'col-start-1 sm:col-start-1 col-end-5 sm:col-end-3' : 'col-start-1 sm:col-start-3 col-end-5' ?>">
                     <livewire:actualite :actualite="$actualite"/>
                 </div>
 
         @endforeach
+
+        <div style="padding-bottom: 15vh;"></div>
 
     @else
 
