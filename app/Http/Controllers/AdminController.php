@@ -29,6 +29,9 @@ class AdminController extends Controller
     public function adminUsers()
     {
         $users = DB::table('users')->get(); //get all users
+
+        //dd($users);
+
         return view('auth.admin.admin-users', ['users' => $users, 'message' => null]);
     }
 

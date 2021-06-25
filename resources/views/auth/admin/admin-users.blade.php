@@ -74,7 +74,7 @@
             <tr style="border-bottom: 1px solid black;">
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->family_name }} {{ $user->given_name }} - {{ $user->email_address }}</td>
-                <td> {{  }} </td>
+                <td> @if($user->stripe_id) Abonné @else Aucun @endif </td>
                 <td>{{ $user->is_admin }}</td>
                 <td>
 
