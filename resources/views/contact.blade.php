@@ -136,11 +136,11 @@
                                         </div>
 
                                         <div class="col-span-6">
-                                            <label for="content" class="block text-sm font-medium text-gray-700">
+                                            <label for="content_email" class="block text-sm font-medium text-gray-700">
                                                 Contenu
                                             </label>
                                             <div class="mt-1">
-                                                <textarea id="content" name="content" rows="6" class="shadow-sm border-blue-300 focus:border-blue-700 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="Ce pourquoi vous nous contactez..."></textarea>
+                                                <textarea id="content_email" name="content_email" rows="6" class="shadow-sm border-blue-300 focus:border-blue-700 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="Ce pourquoi vous nous contactez..."></textarea>
                                             </div>
                                         </div>
 
