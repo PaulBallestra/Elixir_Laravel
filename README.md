@@ -6,6 +6,7 @@ For user to subscribe, admin have to create 2 plans before : Monthly and Yearly
 
 ##Actualites
 Admin can create actualites with custom images, title, description, ....
+Be carefull, the image only work on heroku, curl error in localhost with cloudinary
 
 ##Users
 Admin can modify user values, change if user is admin or not and delete an user
