@@ -22,9 +22,4 @@ class Controller extends BaseController
         return view('service');
     }
 
-    public function contact()
-    {
-        return view('contact');
-    }
-
 }

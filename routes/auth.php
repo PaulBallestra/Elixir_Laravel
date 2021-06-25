@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AbonnementController;
 use App\Http\Controllers\ActualiteController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -28,7 +29,8 @@ Route::get('/actualites/{id}', [ActualiteController::class, 'actualite']);
 Route::get('/service', [App\Http\Controllers\Controller::class, 'service'])->name('service');
 
 //CONTACT
-Route::get('/contact', [App\Http\Controllers\Controller::class, 'contact'])->name('contact');
+Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
+Route::post('/contact', [ContactController::class, 'sendContactForm']);
 
 //ABONNEMENT
 Route::get('/abonnement', [AbonnementController::class, 'abonnement'])

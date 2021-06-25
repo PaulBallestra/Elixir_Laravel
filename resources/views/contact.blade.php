@@ -85,22 +85,44 @@
                 </div>
             </div>
 
+            <!-- SUCCESS MSG -->
+            @if (\Session::has('success'))
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mx-5 mb-3"
+                     role="alert">
+                    <ul>
+                        <li>{!! \Session::get('success') !!}</li>
+                    </ul>
+                </div>
+            @endif
+
+            <!-- ERRORS -->
+            @if ($errors->any())
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mx-5 mb-5" role="alert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
 
             <div class="mb-5 sm:mt-0">
                 <div class="md:grid md:grid-cols-4 md:gap-6">
                     <div class="mt-5 md:mt-0 md:col-start-2 md:col-end-4">
-                        <form action="#" method="POST">
+                        <form method="POST">
+                            @csrf
                             <div class="shadow overflow-hidden sm:rounded-md">
                                 <div class="px-4 py-5 bg-white sm:p-6">
                                     <div class="grid grid-cols-6 gap-6">
                                         <div class="col-span-6 sm:col-span-3">
-                                            <label for="family-name" class="block text-sm font-medium text-gray-700">Nom</label>
-                                            <input type="text" name="family-name" id="family-name" placeholder="Kramer" autocomplete="family-name" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                            <label for="family_name" class="block text-sm font-medium text-gray-700">Nom</label>
+                                            <input type="text" name="family_name" id="family_name-name" placeholder="Kramer" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                         </div>
 
                                         <div class="col-span-6 sm:col-span-3">
-                                            <label for="given-name" class="block text-sm font-medium text-gray-700">Prénom</label>
-                                            <input type="text" name="given-name" id="given-name" placeholder="John" autocomplete="given-name" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                            <label for="given_name" class="block text-sm font-medium text-gray-700">Prénom</label>
+                                            <input type="text" name="given_name" id="given_name" placeholder="John" class="mt-1 border-blue-300 focus:border-blue-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                         </div>
 
                                         <div class="col-span-6 sm:col-span-6">
