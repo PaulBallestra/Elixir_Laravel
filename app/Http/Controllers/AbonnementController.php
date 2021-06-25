@@ -97,6 +97,21 @@ class AbonnementController extends Controller
 
         }
 
+        //ENVOI DU MAIL
+        $details = [
+            'family_name' => Auth::user()->family_name,
+            'given_name' => Auth::user()->given_name,
+            'email_address' => Auth::user()->email_address,
+            'content_email' => $plan,
+            'objet' => 'Votre abonnement a été souscrit !'
+        ];
+
+        //To l'acheteur
+        \Mail::to(Auth::user()->email_address)->send(new \App\Mail\BuyersConfirmMail($details));
+
+        //To l'admin du site
+        \Mail::to('admin@elixir.com')->send(new \App\Mail\AdminBuyersMail($details));
+
         //return view('auth.abonnements', ['subscribed' => true]);
         return redirect(route('abonnement'))->with('success', 'Abonnement Mois subscribed !');
     }
@@ -127,6 +142,21 @@ class AbonnementController extends Controller
             ]);
 
         }
+
+        //ENVOI DU MAIL
+        $details = [
+            'family_name' => Auth::user()->family_name,
+            'given_name' => Auth::user()->given_name,
+            'email_address' => Auth::user()->email_address,
+            'content_email' => $plan,
+            'objet' => 'Votre abonnement a été souscrit !'
+        ];
+
+        //To l'acheteur
+        \Mail::to(Auth::user()->email_address)->send(new \App\Mail\BuyersConfirmMail($details));
+
+        //To l'admin du site
+        \Mail::to('admin@elixir.com')->send(new \App\Mail\AdminBuyersMail($details));
 
         return redirect(route('abonnement'))->with('success', 'Abonnement Annuel subscribed !');
     }
