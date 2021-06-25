@@ -107,8 +107,8 @@
 
                                 <label class="inline-flex items-center mt-3" for="is_visible">
                                     <input type="checkbox" id="is_visible" name="is_visible"
-                                           class="form-checkbox h-5 w-5 text-gray-600"><span
-                                        class="ml-2 text-gray-700" checked>isVisible</span>
+                                           class="form-checkbox h-5 w-5 text-gray-600" checked><span
+                                        class="ml-2 text-gray-700">isVisible</span>
                                 </label>
 
                             </div>

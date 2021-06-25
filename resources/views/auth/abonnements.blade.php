@@ -51,7 +51,7 @@
     @if($subscription)
 
         <!-- Si il y a un abonnement -->
-        <h3 class="sousTitleCustomClass text-center mx-auto"> Abonnement NOM - PRIX </h3>
+        <h3 class="sousTitleCustomClass text-center mx-auto"> Abonnement {{ $plan->name }} - {{ $plan->price/100 }}€ </h3>
         <h3 class="sousTitleCustomClass text-center mx-auto"> XXXX-XXXX-XXXX-{{ Auth::user()->pm_last_four }} </h3>
 
     @else

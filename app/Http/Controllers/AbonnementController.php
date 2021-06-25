@@ -19,11 +19,11 @@ class AbonnementController extends Controller
         $subscription = DB::table('subscriptions')->where('user_id', $user->id)->first();
 
         if($subscription){
-            $planName = DB::table('plans')->where('stripe_id', $subscription->stripe_price)->first();
+            $plan = DB::table('plans')->where('stripe_id', $subscription->stripe_price)->first();
 
-            return view('auth.abonnements', ['subscribed' => false, 'subscription' => $subscription]);
+            return view('auth.abonnements', ['subscribed' => false, 'subscription' => $subscription, 'plan' => $plan]);
         }else{
-            return view('auth.abonnements', ['subscribed' => false, 'subscription' => null]);
+            return view('auth.abonnements', ['subscribed' => false, 'subscription' => null, 'plan' => null]);
         }
 
     }

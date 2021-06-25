@@ -280,7 +280,7 @@ class AdminController extends Controller
     //View create new actualite
     public function adminNewActualite()
     {
-        return view('auth.admin.admin-create-actualite');
+        return view('auth.admin.admin-create-actualite', ['message' => null]);
     }
 
     //Function create new actualite
