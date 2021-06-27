@@ -1,3 +1,20 @@
+#Install laravel
+`composer install`
+
+#Create new key for your projet
+`php artisan key:generate`
+
+#Launch migrations for DB
+`php artisan migrate`
+
+#Launch server
+`php artisan serve`
+
+
+
+
+#Tips for use case
+
 ##Admin
 First user registered will be admin by default.
 
