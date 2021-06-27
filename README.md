@@ -1,32 +1,36 @@
-#Install laravel
+# INSTALL
+
+
+## Change DB values in .env file
+
+## Install laravel
 `composer install`
 
-#Create new key for your projet
+## Create new key for your projet
 `php artisan key:generate`
 
-#Launch migrations for DB
+## Launch migrations for DB
 `php artisan migrate`
 
-#Launch server
+## Launch server
 `php artisan serve`
 
 
 
+# Tips for use
 
-#Tips for use case
-
-##Admin
+## Admin
 First user registered will be admin by default.
 
-##Plan
+## Plan
 For user to subscribe, admin have to create 2 plans before : Monthly and Yearly
 
-##Actualites
+## Actualites
 Admin can create actualites with custom images, title, description, ....
 Be carefull, the image only work on heroku, curl error in localhost with cloudinary
 
-##Users
+## Users
 Admin can modify user values, change if user is admin or not and delete an user
 
-##Search
+## Search
 Don't work for now : 404
